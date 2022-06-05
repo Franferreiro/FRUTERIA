@@ -5,7 +5,9 @@
 }
 
 body {
-  
+  background-image: url("Imagenes/tyt.jpg");
+ /** background-repeat: no-repeat;
+  background-size: cover;**/
  background-color: rgb(113, 220, 113);
 }
 
@@ -64,3 +66,4 @@ body {
   margin: 16px 0;
   font-size: 16px;
 }
+
