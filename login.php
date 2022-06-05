@@ -26,16 +26,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <section class="form-register">
         <form action="login.php" method="post">
-            <h4>Inicio</h4>
-
-
-            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Contraseña">
-
-            <input class="botons" name="boton" type="submit" value="Inicio">
-        </form>
-    </section>
-
+        <h4>Inicio</h4>
+    
+      
+        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+        <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Contraseña">
+      
+        <input class="botons" name="boton" type="submit" value="Inicio">
+        <p>Puedes registrarte  <a style="color:#07a231" href="registro.php"> aquí</a>.</p>
+       
+    </form>
+      </section>
+    
 </body>
 
 </html>
