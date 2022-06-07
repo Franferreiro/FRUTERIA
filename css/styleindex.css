@@ -42,7 +42,7 @@ p {
 	text-align: center;
 }
 .section-title span {
-	color: crimson;
+	color: rgba(22, 161, 49, 0.24);
 }
 
 .cta {
@@ -50,7 +50,7 @@ p {
 	padding: 10px 30px;
 	color: white;
 	background-color: transparent;
-	border: 2px solid crimson;
+	border: 2px solid rgba(22, 161, 49, 0.24);
 	font-size: 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
@@ -60,7 +60,7 @@ p {
 }
 .cta:hover {
 	color: white;
-	background-color: crimson;
+	background-color: rgba(22, 161, 49, 0.24);
 }
 .brand h1 {
 	font-size: 3rem;
@@ -68,7 +68,7 @@ p {
 	color: white;
 }
 .brand h1 span {
-	color: crimson;
+	color: rgba(22, 161, 49, 0.24);
 }
 
 /* Header section */
@@ -82,7 +82,7 @@ p {
 }
 #header .header {
 	min-height: 8vh;
-	background-color: rgba(31, 30, 30, 0.24);
+	background-color: rgba(22, 161, 49, 0.24);
 	transition: 0.3s ease background-color;
 }
 #header .nav-bar {
@@ -97,7 +97,7 @@ p {
 #header .nav-list ul {
 	list-style: none;
 	position: absolute;
-	background-color: rgb(31, 30, 30);
+	background-color: rgba(22, 161, 49, 0.24);
 	width: 100vw;
 	height: 100vh;
 	left: 100%;
@@ -129,7 +129,7 @@ p {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
-	color: rgba(240, 248, 255, 0.021);
+	color: rgba(22, 161, 49, 0.24);
 	font-size: 13rem;
 	letter-spacing: 50px;
 	z-index: -1;
@@ -140,7 +140,7 @@ p {
 	letter-spacing: initial;
 }
 #header .nav-list ul li:hover a {
-	color: crimson;
+	color:rgba(22, 161, 49, 0.24);
 }
 #header .hamburger {
 	height: 60px;
@@ -198,15 +198,15 @@ p {
 }
 /* End Header section */
 
-/* Inicio Section */
-#inicio {
-	background-image: url(./img/hero-bg.png);
+/* Hero Section */
+#hero {
+	background-image: url(../img/tomatoes-g73e036082_1920.jpg);
 	background-size: cover;
 	background-position: top center;
 	position: relative;
 	z-index: 1;
 }
-#inicio::after {
+#hero::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -217,13 +217,13 @@ p {
 	opacity: 0.7;
 	z-index: -1;
 }
-#inicio .inicio {
+#hero .hero {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 50px;
 	justify-content: flex-start;
 }
-#inicio h1 {
+#hero h1 {
 	display: block;
 	width: fit-content;
 	font-size: 4rem;
@@ -232,37 +232,37 @@ p {
 	animation: text_reveal 0.5s ease forwards;
 	animation-delay: 1s;
 }
-#inicio h1:nth-child(1) {
+#hero h1:nth-child(1) {
 	animation-delay: 1s;
 }
-#inicio h1:nth-child(2) {
+#hero h1:nth-child(2) {
 	animation-delay: 2s;
 }
-#inicio h1:nth-child(3) {
+#hero h1:nth-child(3) {
 	animation: text_reveal_name 0.5s ease forwards;
 	animation-delay: 3s;
 }
-#inicio h1 span {
+#hero h1 span {
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 0;
-	background-color: crimson;
+	background-color: rgba(22, 161, 49, 0.24);
 	animation: text_reveal_box 1s ease;
 	animation-delay: 0.5s;
 }
-#inicio h1:nth-child(1) span {
+#hero h1:nth-child(1) span {
 	animation-delay: 0.5s;
 }
-#inicio h1:nth-child(2) span {
+#hero h1:nth-child(2) span {
 	animation-delay: 1.5s;
 }
-#inicio h1:nth-child(3) span {
+#hero h1:nth-child(3) span {
 	animation-delay: 2.5s;
 }
 
-/* End inicio Section */
+/* End Hero Section */
 
 /* Services Section */
 #services .services {
@@ -298,6 +298,22 @@ p {
 	z-index: 1;
 	overflow: hidden;
 }
+#services  #huertopatata{
+	background-image: url(../img/patatas.webp);
+}
+#services  #huertocebolla{
+	background-image: url(../img/onion-3540502__340.jpg);
+}
+#services  #huertotomate{
+	
+	background-image: url(../img/tomatoes-g73e036082_1920.jpg);
+}
+#services  #frutales{
+	background-image: url(../img/fruits-1114060__340.webp);
+}
+#services  #huertolechuga{
+	background-image: url(../img/green-salad-1533956__340.jpg);
+}
 #services .service-item::after {
 	content: '';
 	position: absolute;
@@ -305,7 +321,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background-image: linear-gradient(60deg, rgb(4, 76, 4) 0%, rgb(133, 230, 178) 100%);
 	opacity: 0.9;
 	z-index: -1;
 }
@@ -360,7 +376,7 @@ p {
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background-image: linear-gradient(60deg, rgb(5, 88, 5) 0%, rgb(16, 225, 16) 100%);
 	color: white;
 }
 #projects .project-info h1 {
@@ -388,7 +404,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	/*background-image: linear-gradient(60deg, green 0%, green 100%);**/
 	opacity: 0.7;
 }
 #projects .project-img img {
@@ -442,7 +458,7 @@ p {
 	top: 19px;
 	height: 98%;
 	width: 98%;
-	border: 7px solid crimson;
+	border: 7px solid rgba(22, 161, 49, 0.24);
 	z-index: -1;
 }
 /* End About Section */
@@ -494,7 +510,7 @@ p {
 
 /* Footer */
 #footer {
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background-image: linear-gradient(60deg, green 0%, green 100%);
 }
 #footer .footer {
 	min-height: 200px;
@@ -560,7 +576,7 @@ p {
 }
 @keyframes text_reveal_name {
 	100% {
-		color: crimson;
+		color: rgba(22, 161, 49, 0.24);
 		font-weight: 500;
 	}
 }
@@ -576,11 +592,11 @@ p {
 		font-size: 6rem;
 	}
 
-	/* inicio */
-	#inicio h1 {
+	/* Hero */
+	#hero h1 {
 		font-size: 7rem;
 	}
-	/* End inicio */
+	/* End Hero */
 
 	/* Services Section */
 	#services .service-bottom .service-item {
@@ -624,7 +640,7 @@ p {
 		top: 34px;
 		height: 98%;
 		width: 98%;
-		border: 10px solid crimson;
+		border: 10px solid rgba(22, 161, 49, 0.24)green;
 	}
 	#about .col-right {
 		text-align: left;
