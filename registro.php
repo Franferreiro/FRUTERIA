@@ -38,9 +38,9 @@ if (isset($_POST["registrar"])) {
     <input class="controls" type="text" name="nombre" id="nombres" placeholder="Ingrese su Nombre">
     <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
     <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-    <input class="controls" type="number" name="telefono" id="telefono" placeholder="Ingrese su telefono">
+    <input class="controls" type="number" name="telefono" id="telefono" placeholder="Ingrese su Teléfono">
     <input class="controls" type="password" name="psw1" id="psw" placeholder="Ingrese su Contraseña">
-    <input class="controls" type="password" name="psw2" id="psw" placeholder="Repita la contraseña">
+    <input class="controls" type="password" name="psw2" id="psw" placeholder="Repita la Contraseña">
     <input class="botons" type="submit" name="registrar" value="Registrar">
     
   </section>

@@ -5,11 +5,12 @@
 }
 
 body {
-  /**background-image: url("../img/prueba3861363__340.jpg");
+  background-image: url("../img/tomatoes-g73e036082_1920.jpg");
  
  /** background-repeat: no-repeat;
   background-size: cover;**/
- background-color:rgb(6, 140, 33)
+ /**background-color:rgb(6, 140, 33)**/
+ 
 }
 
 .form-register {

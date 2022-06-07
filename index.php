@@ -77,7 +77,7 @@ session_start();
   <section id="services">
     <div class="services container">
       <div class="service-top">
-        <h1 class="section-title">Res<span>r</span>vas</h1>
+        <h1 class="section-title">Rese<span>r</span>vas</h1>
         <p>Ven a recoger las frutas y vegetales directamente del árboly del huerto, escoge tú mismo el que más te guste y comprueba de primera mano que es fresco y libre de conservantes</p>
       </div>
       <div class="service-bottom">
@@ -122,7 +122,7 @@ session_start();
   <section id="projects">
     <div class="projects container">
       <div class="projects-header">
-        <h1 class="section-title">Productos</h1>
+        <h1 class="section-title">Prod<span>u</span>ctos</h1>
       </div>
       <div class="all-projects">
         <div class="project-item">
