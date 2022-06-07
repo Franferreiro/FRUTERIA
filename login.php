@@ -1,10 +1,27 @@
 <?php
 require "BD_metodos.php";
-print_r(comprobarusuarios());
-
+//*print_r(listarusuarios());
+$usuario=[];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo $_POST['correo'];
-}
+  
+
+
+    }
+    if(!empty($_POST['correo']) && !empty($_POST['pwd'])){
+        $usuario=traerusuarioporcorreo($_POST['correo']);
+        
+        
+        if(password_verify($_POST['pwd'], $usuario[0]["Psw"])){
+            print_r($usuario);
+            session_start();
+            $_SESSION["user"]=$usuario[0]["Nombre"];
+            $_SESSION["apellido"]=$usuario[0]["Apellido"];
+            $_SESSION["correo"]=$usuario[0]["Correo"];
+            $_SESSION["img"]=$usuario[0]["Imagen"];
+
+        }
+    }
+
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
       
         <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-        <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Contraseña">
+        <input class="controls" type="password" name="pwd" id="contraseña" placeholder="Ingrese su Contraseña">
       
         <input class="botons" name="boton" type="submit" value="Inicio">
         <p>Puedes registrarte  <a style="color:#07a231" href="registro.php"> aquí</a>.</p>

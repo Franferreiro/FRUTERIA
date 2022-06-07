@@ -5,10 +5,11 @@
 }
 
 body {
-  background-image: url("Imagenes/tyt.jpg");
+  /**background-image: url("../img/prueba3861363__340.jpg");
+ 
  /** background-repeat: no-repeat;
   background-size: cover;**/
- background-color: rgb(113, 220, 113);
+ background-color:rgb(6, 140, 33)
 }
 
 .form-register {

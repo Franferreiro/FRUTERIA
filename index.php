@@ -1,3 +1,8 @@
+<?php
+session_start();
+/*echo "<br><br><br><br><br>";*/
+/*echo $_SESSION["user"];*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +43,15 @@
             <li><a href="#projects" data-after="Productos">Productos</a></li>
             <li><a href="#about" data-after="Acerca de">Acerca de</a></li>
             <li><a href="#contact" data-after="Contacto">Contacto</a></li>
-            <li><a href="login.php" data-after="Contacto">Login</a></li>
+            <?php
+            if(isset($_SESSION["img"])){
+              echo "<li><a href='perfil.php' data-after='Contacto'>".$_SESSION['img']."</a></li>";
+
+            }else{
+              echo' <li><a href="login.php" data-after="Contacto">Login</a></li>';
+            }
+            ?>
+         
           </ul>
         </div>
       </div>

@@ -4,9 +4,11 @@ require "BD_metodos.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo $_POST['correo'];
 }
+
 if (isset($_POST["registrar"])) {
-  registrarusuarios($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $_POST['psw1']);
-  print_r(comprobarusuarios());
+  $hasheada=password_hash($_POST['psw1'],PASSWORD_DEFAULT);
+  registrarusuarios($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $hasheada);
+  print_r(listarusuarios());
 }
 
 

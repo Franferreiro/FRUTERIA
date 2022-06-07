@@ -1,7 +1,7 @@
 <?php
 require "Config/conexiones_BD.php";
 
-function comprobarusuarios(){
+function listarusuarios(){
     $base=conectar("admin");
     $sql=$base->prepare("SELECT * FROM usuarios ");
     $sql->execute();
@@ -10,6 +10,16 @@ function comprobarusuarios(){
     $base=null;
     return $resultado;
 
+}
+function traerusuarioporcorreo($correo){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM usuarios WHERE Correo=:correo");
+    $sql->bindParam(":correo",$correo);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
 }
 function registrarusuarios($nombre,$apellido,$correo,$telefono,$psw,$rol=2){
     try{
