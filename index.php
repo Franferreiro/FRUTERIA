@@ -10,7 +10,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styleindex.css">
-  
+
   <title>My Website</title>
 </head>
 
@@ -20,13 +20,7 @@ session_start();
     <div class="header container">
       <div class="nav-bar">
         <div>
-          <a class="navbar-brand" href=""
-            ><img
-              src="./img/logogranjaa.png"
-              alt="Logo"
-              class="me-2"
-              style="width: 70px"
-          /></a>
+          <a class="navbar-brand" href=""><img src="./img/logogranjaa.png" alt="Logo" class="me-2" style="width: 70px" /></a>
         </div>
         <div class="brand">
           <a href="#hero">
@@ -44,14 +38,13 @@ session_start();
             <li><a href="#about" data-after="Acerca de">Acerca de</a></li>
             <li><a href="#contact" data-after="Contacto">Contacto</a></li>
             <?php
-            if(isset($_SESSION["img"])){
-              echo "<li><a href='perfil.php' data-after='Contacto'>".$_SESSION['img']."</a></li>";
-
-            }else{
-              echo' <li><a href="login.php" data-after="Contacto">Login</a></li>';
+            if (isset($_SESSION["img"])) {
+              echo "<li><a href='perfil.php' data-after='Contacto'>" . $_SESSION['img'] . "</a></li>";
+            } else {
+              echo ' <li><a href="login.php" data-after="Contacto">Login</a></li>';
             }
             ?>
-         
+
           </ul>
         </div>
       </div>
@@ -65,7 +58,7 @@ session_start();
     <div class="hero container">
       <div>
         <h1>Hola, <span></span></h1>
-        <h1>Bienvenido a  <span></span></h1>
+        <h1>Bienvenido a <span></span></h1>
         <h1>GranJuca<span></span></h1>
         <a href="#services" type="button" class="cta">Reservar</a>
       </div>
@@ -82,37 +75,37 @@ session_start();
       </div>
       <div class="service-bottom">
         <div class="service-item" id="huertotomate">
-         
+
           <h2>Huerto de tomates</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
             architecto placeat beatae tenetur officia quod</p>
         </div>
-        <div class="service-item"  id="huertocebolla">
-        
+        <div class="service-item" id="huertocebolla">
+
           <h2>Huerto de cebollas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
             architecto placeat beatae tenetur officia quod</p>
         </div>
         <div class="service-item " id="huertopatata">
-         
+
           <h2>Huerto de patatas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
             architecto placeat beatae tenetur officia quod</p>
         </div>
-        <div class="service-item"  id="huertolechuga">
-         
+        <div class="service-item" id="huertolechuga">
+
           <h2>Huerto de lechugas</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
             architecto placeat beatae tenetur officia quod</p>
         </div>
-      
-        <div class="service-item"  id="frutales">
-         
+
+        <div class="service-item" id="frutales">
+
           <h2>Finca de frutales</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
             architecto placeat beatae tenetur officia quod</p>
         </div>
-        
+
       </div>
     </div>
   </section>
@@ -129,13 +122,13 @@ session_start();
           <div class="project-info">
             <h1>Patata</h1>
             <h2>Patata kennebec</h2>
-            
+
             <p>Especialmente indicada para cocer, asar o utilizar en guisos
             </p>
-            <p>Precio:2.60 €/Kg</p>
+            <p>Precio: 2.60 €/Kg</p>
             <h2>Patata Monalisa</h2>
             <p>Son patatas “todoterreno”, ya sea fritas, porque absorben poco aceite; cocidas, ya que no se rompen, o asadas.</p>
-            <p>Precio:2.30 €/Kg</p>
+            <p>Precio: 2.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/patatas.webp" alt="img">
@@ -144,10 +137,12 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Tomate </h1>
-           
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Tomate Raf</h2>
+            <p>Es de forma irregular, achatado y ovalado, y tiene verdaderos adeptos por su delicioso sabor, muy dulce. En crudo, con unas gotitas de aceite de oliva y un pelín de sal, está espectacular.</p>
+            <p>Precio: 4.30 €/Kg</p>
+            <h2>Tomate corazón de buey</h2>
+            <p>Son muy conocidos por su pulpa carnosa y muy pocas semillas. Son deliciosos, dulces, con mucho jugo y piel fina. No necesitan mucho aderezo: apenas un poco de sal y aceite de oliva virgen y te rendirás a su sabor.</p>
+            <p>Precio: 4.50 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/tomatoes-5356__340.jpg" alt="img">
@@ -156,10 +151,12 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Lechuga </h1>
-           
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+              <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/green-salad-1533956__340.jpg" alt="img">
@@ -168,7 +165,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Cebolla </h1>
-           
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -180,7 +177,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Manzana</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -192,7 +189,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Pera</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -204,7 +201,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Uva</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -216,7 +213,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Higo</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -228,7 +225,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Melocotón</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -240,7 +237,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Ciruela</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -252,7 +249,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Naranja</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -264,7 +261,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Cereza</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -276,7 +273,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Limón</h1>
-            
+
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
               rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
               harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
@@ -306,8 +303,8 @@ session_start();
         <p>Somos una familia que cultiva y siembra natural y sosteniblemente los productos básicos del día a día y te invitamos a que vengas a cercionarte de primera mano de la calidad de nuestros alimentos.
           Acercate a pasar una buena experiencia recogiendo tú comida de hoy o de mañana directamente del campo y del árbol.
           Aquí te proporcionaremos las herramientas y utensilios necesarios para que saques de la tierra las patatas de tu bocadillo de tortilla para la cena o
-           unos frescos tomates y lechugas recien recogidos para hacerte una ensalada.
-           Si eres un fan de la fruta disponemos de una amplia variedad de árboles frutales, tú mismo podrás escoger la que más te apetezca para merendar.
+          unos frescos tomates y lechugas recien recogidos para hacerte una ensalada.
+          Si eres un fan de la fruta disponemos de una amplia variedad de árboles frutales, tú mismo podrás escoger la que más te apetezca para merendar.
 
         </p>
         <a href="registro.php" class="cta">Regístrate</a>
@@ -365,10 +362,10 @@ session_start();
         <div class="social-item">
           <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
         </div>
-     
-        </div>
+
       </div>
-      <p>Copyright © 2020 GranJuca. Todos los derechos reservados</p>
+    </div>
+    <p>Copyright © 2020 GranJuca. Todos los derechos reservados</p>
     </div>
   </section>
   <!-- End Footer -->

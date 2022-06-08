@@ -1,7 +1,8 @@
 <?php
 require "BD_metodos.php";
+require "validacion.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+/**if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo $_POST['correo'];
 }
 
@@ -9,8 +10,27 @@ if (isset($_POST["registrar"])) {
   $hasheada=password_hash($_POST['psw1'],PASSWORD_DEFAULT);
   registrarusuarios($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $hasheada);
   print_r(listarusuarios());
-}
+}**/
+$error = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $oblig = array('nombre', 'apellidos', 'correo','telefono','psw1','psw2');
+  
+  foreach ($oblig as $campo) {
+      if (empty($_POST[$campo])){
+        $error = true;
 
+      }else{
+        $_POST['nombre']=test_input($_POST["nombre"]);
+        $_POST['apellidos']=test_input($_POST["apellidos"]);
+        $_POST['correo']=test_input($_POST["correo"]);
+        $_POST['telefono']=test_input($_POST["telefono"]);
+        $_POST['psw1']=test_input($_POST["psw1"]);
+        $_POST['psw2']=test_input($_POST["ps2"]);
+
+      }
+        
+  }
+}
 
 ?>
 
@@ -42,6 +62,7 @@ if (isset($_POST["registrar"])) {
     <input class="controls" type="password" name="psw1" id="psw" placeholder="Ingrese su Contraseña">
     <input class="controls" type="password" name="psw2" id="psw" placeholder="Repita la Contraseña">
     <input class="botons" type="submit" name="registrar" value="Registrar">
+    <?php if($error){?><p style="color: red ";>Debes rellenar todos los campos</p><?php } ?>
     
   </section>
   </form>
