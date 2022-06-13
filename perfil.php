@@ -5,15 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.css" />
-    <!-- Font Awesome -->
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/fontawesome.css" rel="stylesheet" />
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/brands.css" rel="stylesheet" />
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/solid.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/styleindex.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styleperfil.css">
     <title>Document</title>
 </head>
 <body>
@@ -26,14 +20,14 @@
     <div class="container">
         <div class="row">
             <div class="col mt-5 pt-5 mx-5 ">
-                <h2>Perfil de usuario</h2>
+               
             </div>
         </div>
 
         <form action="../../pagina/modelo/perfil.php" method="post">
             <div class="row pt-5">
                 <div class="col-3">
-                    <img src="../../Imagenes/Iconos/Logo_iWeather.png" alt="" width="100%">
+                    <img src="" alt="" width="100%">
                 </div>
                 <div class="col-9">
                     <ul class="list-group list-group-flush px-5">
