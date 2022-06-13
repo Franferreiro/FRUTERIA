@@ -32,8 +32,8 @@ function registrarusuarios($nombre,$apellido,$correo,$telefono,$psw,$rol=2){
     $sql->bindParam(":psw",$psw);
     $sql->bindParam(":rol",$rol);
     $sql->execute();
-   $sql=null;
-   $base=null;
+    $sql=null;
+    $base=null;
     }catch(PDOException $e){
         print $e->getMessage();
     }

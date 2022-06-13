@@ -285,6 +285,10 @@ p {
 	flex-wrap: wrap;
 	margin-top: 50px;
 }
+#botonreserva{
+	background-color: rgba(22, 161, 49, 0.24);
+
+}
 #services .service-item {
 	flex-basis: 80%;
 	display: flex;

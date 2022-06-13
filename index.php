@@ -77,33 +77,33 @@ session_start();
         <div class="service-item" id="huertotomate">
 
           <h2>Huerto de tomates</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
+          <p>Puede que sea su brillante color, su delicioso sabor o su sorprende versatilidad, pero lo cierto es que nuestros tomates son un alimento con mucho «sex appeal».</p>
+          <button class="cta">Reservar</button>
         </div>
         <div class="service-item" id="huertocebolla">
 
           <h2>Huerto de cebollas</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
+          <p>La cebolla es un producto básico de la cocina que no debería faltar en el huerto familiar. Es una hortaliza adaptable a diferentes climas y sustratos, fácil de producir.</p>
+          <button class="cta">Reservar</button>
         </div>
         <div class="service-item " id="huertopatata">
 
           <h2>Huerto de patatas</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
+          <p>Las mejores patatas libes de químicos y atitivos,sembradas lo más naturalmente posible para que tu mismo las lleves del huerto a la cocina.</p>
+          <button class="cta">Reservar</button>
         </div>
         <div class="service-item" id="huertolechuga">
 
           <h2>Huerto de lechugas</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
+          <p>Lechuga verde y fresca, todo lo que necesitas para una buena ensalada, añadele algunos de nuestros tomates y algo de nuestra cebolla y será perfecta.</p>
+          <button class="cta">Reservar</button>
         </div>
 
         <div class="service-item" id="frutales">
 
           <h2>Finca de frutales</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis debitis rerum, magni voluptatem sed
-            architecto placeat beatae tenetur officia quod</p>
+          <p>Recoge las frutas que quieras; desde manzanas,limones,melocotones o lo que más te apetezca, escoge a tu gusto y cercionate de primera mano que estan maduras y jugosas.</p>
+          <button class="cta">Reservar</button>
         </div>
 
       </div>
@@ -156,7 +156,7 @@ session_start();
             <p>Precio: 3.30 €/Kg</p>
             <h2>Lechuga Rizada</h2>
             <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-              <p>Precio: 3.30 €/Kg</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/green-salad-1533956__340.jpg" alt="img">
@@ -166,9 +166,12 @@ session_start();
           <div class="project-info">
             <h1>Cebolla </h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Cebolla Morada</h2>
+            <p>Es grande, de ligero sabor picante y con un toque dulce, y se cultiva en verano y primavera. Su consumo predilecto es en fresco.</p>
+            <p>Precio: 3.10 €/Kg</p>
+            <h2>Cebolla Blanca</h2>
+            <p>Se recomienda especialmente para su consumo en crudo, gracias a su sabor suave y su textura crujiente. </p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/onion-3540502__340.jpg" alt="img">
@@ -178,9 +181,12 @@ session_start();
           <div class="project-info">
             <h1>Manzana</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Reineta</h2>
+            <p>Es grande y achatada. Su espectro de colores puede ir desde el amarillo hasta el gris, pasando por tonalidades verdosas. Tiene manchas y un tacto áspero. De sabor agridulce.</p>
+            <p>Precio: 4.30 €/Kg</p>
+            <h2>Golden</h2>
+            <p>Tiene un color amarillento con toques dorados. Además destaca por su sabor ácido que desaparece cuando madura, convirtiéndose en dulce y su textura crujiente.</p>
+            <p>Precio: 4.10 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/apples-2788599__340.jpg" alt="img">
@@ -190,9 +196,12 @@ session_start();
           <div class="project-info">
             <h1>Pera</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/pera-1534494__480.jpg" alt="img">
@@ -202,9 +211,12 @@ session_start();
           <div class="project-info">
             <h1>Uva</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/uvas-1057433822-170667a.jpg" alt="img">
@@ -214,9 +226,12 @@ session_start();
           <div class="project-info">
             <h1>Higo</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/figs-751__340.jpg" alt="img">
@@ -226,9 +241,12 @@ session_start();
           <div class="project-info">
             <h1>Melocotón</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/peaches-3529802__340.webp" alt="img">
@@ -238,9 +256,12 @@ session_start();
           <div class="project-info">
             <h1>Ciruela</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/ciruela-71690__340.jpg" alt="img">
@@ -250,9 +271,12 @@ session_start();
           <div class="project-info">
             <h1>Naranja</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/oranges-1117628__340.jpg" alt="img">
@@ -261,10 +285,12 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Cereza</h1>
-
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/cherries-598170__340.jpg" alt="img">
@@ -274,9 +300,12 @@ session_start();
           <div class="project-info">
             <h1>Limón</h1>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, iusto cupiditate voluptatum impedit unde
-              rem ipsa distinctio illum quae mollitia ut, accusantium eius odio ducimus illo neque atque libero non sunt
-              harum? Ipsum repellat animi, fugit architecto voluptatum odit et!</p>
+            <h2>Lechuga Romana</h2>
+            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
+            <p>Precio: 3.30 €/Kg</p>
+            <h2>Lechuga Rizada</h2>
+            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/lemon-1117568__340.jpg" alt="img">
