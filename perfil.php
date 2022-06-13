@@ -19,26 +19,10 @@ $_SESSION["usuario"] = "";
     <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/brands.css" rel="stylesheet" />
     <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/solid.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styleindex.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleperfil.css">
 
     <title>Document</title>
 </head>
-
-<style>
-    body {
-        font-size: 16px;
-
-    }
-
-    .container {
-        max-width: 1980px;
-
-    }
-    .list-group-item{
-        background-color: transparent;
-    }
-</style>
-
 <body>
     <header>
         <nav>
