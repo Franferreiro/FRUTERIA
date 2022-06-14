@@ -1,6 +1,6 @@
 
 
-<<section id="header">
+<section id="header">
     <div class="header container">
       <div class="nav-bar">
         <div>
@@ -27,7 +27,13 @@
             <li><a href="index.php#projects" data-after="Productos">Productos</a></li>
             <li><a href="index.php#about" data-after="Acerca de">Acerca de</a></li>
             <li><a href="index.php#contact" data-after="Contacto">Contacto</a></li>
-            <li><a href="login.php" data-after="Contacto">Login</a></li>
+            <?php
+            if (isset($_SESSION["img"])) {
+              echo "<li><a href='perfil.php' data-after='Contacto'> <img class='imgnav' src='". $_SESSION['img'] ."' ></a></li>";
+            } else {
+              echo ' <li><a href="login.php" data-after="Contacto">Login</a></li>';
+            }
+            ?>
           </ul>
         </div>
       </div>

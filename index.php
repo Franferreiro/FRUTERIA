@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 /*echo "<br><br><br><br><br>";*/
 /*echo $_SESSION["user"];*/
 ?>
@@ -39,11 +40,12 @@ session_start();
             <li><a href="#contact" data-after="Contacto">Contacto</a></li>
             <?php
             if (isset($_SESSION["img"])) {
-              echo "<li><a href='perfil.php' data-after='Contacto'>" . $_SESSION['img'] . "</a></li>";
+              echo "<li><a href='perfil.php' data-after='Contacto'> <img class='imgnav' src='". $_SESSION['img'] ."' ></a></li>";
             } else {
               echo ' <li><a href="login.php" data-after="Contacto">Login</a></li>';
             }
             ?>
+           
 
           </ul>
         </div>

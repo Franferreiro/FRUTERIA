@@ -19,6 +19,10 @@ a {
 	align-items: center;
 	justify-content: center;
 }
+.imgnav{	
+	width: 40px;
+	height: 40px;
+}
 img {
 	height: 100%;
 	width: 100%;

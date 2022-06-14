@@ -41,7 +41,7 @@ $_POST['apellidos']=test_input($_POST["apellidos"]);
 if(!$error && empty($errores)){
   $hasheada=password_hash($_POST['psw1'],PASSWORD_DEFAULT);
   registrarusuarios($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $hasheada);
-  header('Location: index.php');
+  header('Location: login.php');
 }
 }    
 }

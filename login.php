@@ -1,26 +1,38 @@
 <?php
 require "BD_metodos.php";
-//*print_r(listarusuarios());
-$usuario=[];
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
+
+$usuario = [];
+$errorcontraseña = false;
+$errorusuario = false;
+if (isset($_POST["boton"])) {
 
 
-    }
-    if(!empty($_POST['correo']) && !empty($_POST['pwd'])){
-        $usuario=traerusuarioporcorreo($_POST['correo']);
-        
-        
-        if(password_verify($_POST['pwd'], $usuario[0]["Psw"])){
-            print_r($usuario);
-            session_start();
-            $_SESSION["user"]=$usuario[0]["Nombre"];
-            $_SESSION["apellido"]=$usuario[0]["Apellido"];
-            $_SESSION["correo"]=$usuario[0]["Correo"];
-            $_SESSION["img"]=$usuario[0]["Imagen"];
 
+
+    if (!empty($_POST['correo']) && !empty($_POST['pwd'])) {
+
+        $usuario = traerusuarioporcorreo($_POST['correo']);
+        if (empty($usuario)) {
+            $errorusuario=true;
+        } else {
+
+            if (!password_verify($_POST['pwd'], $usuario[0]["Psw"])) {
+                $errorcontraseña = true;
+            } else {
+                print_r($usuario);
+                session_start();
+                $_SESSION["id"] = $usuario[0]["Id"];
+                $_SESSION["user"] = $usuario[0]["Nombre"];
+                $_SESSION["apellido"] = $usuario[0]["Apellido"];
+                $_SESSION["correo"] = $usuario[0]["Correo"];
+                $_SESSION["telefono"] = $usuario[0]["Telefono"];
+                $_SESSION["img"] = $usuario[0]["Imagen"];
+                insertarhistorico($_SESSION["id"],"Login");
+                header('Location: index.php');
+            }
         }
     }
+}
 
 
 ?>
@@ -43,19 +55,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
     </header>
     <section class="form-register">
-        <form action="login.php" method="post">
-        <h4>Inicio</h4>
-    
-      
-        <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-        <input class="controls" type="password" name="pwd" id="contraseña" placeholder="Ingrese su Contraseña">
-      
-        <input class="botons" name="boton" type="submit" value="Inicio">
-        <p>Puedes registrarte  <a style="color:#07a231" href="registro.php"> aquí</a>.</p>
-       
-    </form>
-      </section>
-    
+        <form action="" method="post">
+            <h4>Inicio</h4>
+
+
+            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+            <input class="controls" type="password" name="pwd" id="contraseña" placeholder="Ingrese su Contraseña">
+
+            <input class="botons" name="boton" type="submit" value="Inicio">
+            <p>Puedes registrarte <a style="color:#07a231" href="registro.php"> aquí</a>.</p>
+             <?php if ($errorusuario) {
+                echo "<p style='color:red'>Usuario no encontrado</p>";
+            }else if($errorcontraseña){
+                echo "<p style='color:red'>Contraseña errónea</p>";
+
+            }
+            ?>
+        </form>
+    </section>
+
 </body>
 
 </html>
