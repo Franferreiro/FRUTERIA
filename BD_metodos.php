@@ -93,7 +93,7 @@ function consultarhistoriausuario($id){
 function consultarhistoriausuarioporfecha($id,$inicio,$final){
     try{
     $base=conectar("admin");
-    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id AND fecha BETWEEN :inicio AND :final ORDER BY fecha DESC " );
+    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id AND :inicio <= fecha  AND :final >= fecha ORDER BY fecha DESC " );
     $sql->bindParam(":id",$id);
     $sql->bindParam(":inicio",$inicio);
     $sql->bindParam(":final",$final);
