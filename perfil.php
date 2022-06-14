@@ -1,18 +1,67 @@
 <?php
 require "BD_metodos.php";
 session_start();
-
+$imagen_actual;
 if (isset($_POST["Guardar"])) {
   
+
+   
+
+    if (isset($_FILES['nuevaimagen'])&& $_FILES['nuevaimagen']['error'] === UPLOAD_ERR_OK) {
+        $imagen = $_POST['nuevaimagen'];
+        $mensaje_error;
+        //Obtener detalles del fichero
+        $fileTmpPath = $_FILES['nuevaimagen']['tmp_name'];
+        $fileName = $_FILES['nuevaimagen']['name'];
+        $fileSize = $_FILES['nuevaimagen']['size'];
+        $fileType = $_FILES['nuevaimagen']['type'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+        //Limpiar los caracteres especiales
+        $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+        //Creamos un array con las extensiones permitidas
+        $allowedfileExtensions = array('jpg', 'gif', 'png');
+        if (in_array($fileExtension, $allowedfileExtensions)) {
+            $directorio = 'img/imgperfil'; //Declaramos un  variable con la ruta donde guardaremos los archivos
+            //Validamos si la ruta de destino existe, en caso de no existir la creamos
+            if (!file_exists($directorio)) {
+                //0777 son los permisos
+                mkdir($directorio, 0777) or die("No se puede crear el directorio;n");
+            }
+            $dir = opendir($directorio); //Abrimos el directorio de destino
+            $target_path = $directorio . '/' . $newFileName; //Indicamos la ruta de destino, así como el nombre del archivo
+            if (move_uploaded_file($fileTmpPath, $target_path)) {
+
+                $imagen_actual_ruta = $_SESSION["img"];
+                $imagen_actual_aux = explode("/", $imagen_actual_ruta);
+                $imagen_actual = end($imagen_actual_aux);
+               
+                //Aqui compruebo si la imagen por defecto es la que esta,si es el caso no la borro pero si no lo es borro la imagen anterior
+                if ($imagen_actual === "anonimo.png") {
+                   $_SESSION["img"]=$target_path;
+                    header('Location:perfil.php');
+                } else {
+                    unlink($imagen_actual_ruta);
+                    $_SESSION["img"]=$target_path;
+                    header('Location:perfil.php');
+                } 
+            } else {
+                echo "Ha ocurrido un error, por favor inténtelo de nuevo.<br>";
+            }
+            closedir($dir); //Cerramos el directorio de destino
+        }
+    } else {
+        $mensaje_error = "El archivo introducido no es una imagen (jpg,gif,png)";
+    }
+
     $_SESSION["user"] = $_POST["Usuario"];
     $_SESSION["telefono"] = $_POST["Telefono"];
     $_SESSION["apellido"] = $_POST["Apellido"];
     $_SESSION["correo"] = $_POST["Correo"];
    
 
-
   
-  modificarperfil($_SESSION["id"], $_SESSION["user"], $_SESSION["apellido"], $_SESSION["correo"], $_SESSION["telefono"]);
+  modificarperfil($_SESSION["id"], $_SESSION["user"], $_SESSION["apellido"], $_SESSION["correo"], $_SESSION["telefono"], $_SESSION["img"]);
   insertarhistorico($_SESSION["id"],"Modificación");
   
 }
@@ -54,10 +103,11 @@ if (isset($_POST["Cerrar"])) {
 
         <div class="row ">
             <div class="col">
-                <form action="perfil.php" method="post">
+                <form action="perfil.php" method="post" enctype="multipart/form-data">
                     <div class="row pt-5">
                         <div class="col-5">
-                            <img src="img/anonimo.png" alt="" width="100%">
+                            <img src="<?php echo $_SESSION["img"] ?>"  class="picture-src" id="wizardPicturePreview" alt="" width="100%">
+                            <input type="file" class="btn btn-dark id="wizard-picture" name="nuevaimagen">
                         </div>
                         <div class="col-7">
                             <ul class="list-group list-group-flush px-5">

@@ -43,15 +43,16 @@ function registrarusuarios($nombre,$apellido,$correo,$telefono,$psw,$rol=2){
     }
 
 }
-function modificarperfil($id, $nombre, $apellido, $correo, $telefono){
+function modificarperfil($id, $nombre, $apellido, $correo, $telefono,$img){
     try {
         $base = conectar("admin");
-        $sql = $base->prepare("UPDATE usuarios SET Nombre=:nombre , Apellido=:apellido , Correo=:correo, Telefono=:telefono WHERE Id=:id");
+        $sql = $base->prepare("UPDATE usuarios SET Nombre=:nombre , Apellido=:apellido , Correo=:correo, Telefono=:telefono, Imagen=:img WHERE Id=:id");
         $sql->bindParam(':id', $id);
         $sql->bindParam(':nombre', $nombre);
         $sql->bindParam(':apellido', $apellido);
         $sql->bindParam(':correo', $correo);
         $sql->bindParam(':telefono', $telefono);
+        $sql->bindParam(':img', $img);
         $sql->execute();
 
         $sql =  null;
