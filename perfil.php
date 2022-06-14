@@ -136,9 +136,10 @@ if (isset($_POST["Cerrar"])) {
     <?php if (isset($_POST["Historial"]) || isset($_POST["Boton_Fecha"])) {
         $historia = consultarhistoriausuario($_SESSION["id"]);
         if (isset($_POST["Boton_Fecha"])){
-            echo str_replace( "-","",$_POST["Fecha_Inicio"]);
+
+            echo $_POST["Fecha_Inicio"]. "<br>";
             echo $_POST["Fecha_Final"];
-            $historia = consultarhistoriausuarioporfecha($_SESSION["id"],str_replace( "-","",$_POST["Fecha_Inicio"]),str_replace( "-","",$_POST["Fecha_Final"]));
+            $historia = consultarhistoriausuarioporfecha($_SESSION["id"],$_POST["Fecha_Inicio"],$_POST["Fecha_Final"]);
         }
 
             echo " 
