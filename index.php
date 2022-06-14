@@ -191,12 +191,12 @@ session_start();
           <div class="project-info">
             <h1>Pera</h1>
 
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <h2>Blanquilla</h2>
+            <p>De tamaño mediano, con una piel muy lisa, fina y de un espléndido color verde brillante.Esta especie tienen una carne muy jugosa, con un corazón pequeño </p>
+            <p>Precio: 3.80 €/Kg</p>
+            <h2>Mantecosa Hardy</h2>
+            <p>Variedad francesa de fruto con un tamaño mediano y forma asimétrica, corta.Debajo de su piel amarillo verdosa se puede probar una pulpa de grano fino, muy tierna y jugosa, con gran sabor.</p>
+            <p>Precio: 3.20 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/pera-1534494__480.jpg" alt="img">
