@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body>
-  <!-- Header -->
+  
   <section id="header">
     <div class="header container">
       <div class="nav-bar">
@@ -52,10 +52,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End Header -->
-
-
-  <!-- Hero Section  -->
+  
   <section id="hero">
     <div class="hero container">
       <div>
@@ -66,9 +63,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End Hero Section  -->
-
-  <!-- Service Section -->
+  
   <section id="services">
     <div class="services container">
       <div class="service-top">
@@ -111,9 +106,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End Service Section -->
-
-  <!-- Projects Section -->
+  
   <section id="projects">
     <div class="projects container">
       <div class="projects-header">
@@ -318,9 +311,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End Projects Section -->
 
-  <!-- About Section -->
   <section id="about">
     <div class="about container">
       <div class="col-left">
@@ -342,9 +333,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End About Section -->
-
-  <!-- Contact Section -->
+ 
   <section id="contact">
     <div class="contact container">
       <div>
@@ -377,9 +366,7 @@ session_start();
       </div>
     </div>
   </section>
-  <!-- End Contact Section -->
-
-  <!-- Footer -->
+ 
   <section id="footer">
     <div class="footer container">
       <div class="brand">
@@ -399,7 +386,7 @@ session_start();
     <p>Copyright © 2020 GranJuca. Todos los derechos reservados</p>
     </div>
   </section>
-  <!-- End Footer -->
+ 
   <script src="js/app.js"></script>
 </body>
 

@@ -72,11 +72,11 @@ p {
 	color: white;
 }
 .brand h1 span {
-	/**color: rgba(22, 161, 49, 0.24);**/
+	
 	color: rgb(222, 163, 13);
 }
 
-/* Header section */
+
 #header {
 	position: fixed;
 	z-index: 1000;
@@ -201,9 +201,7 @@ p {
 #header .hamburger.active .bar::after {
 	top: 0;
 }
-/* End Header section */
 
-/* Hero Section */
 #hero {
 	background-image: url(../img/tomatoes-g73e036082_1920.jpg);
 	background-size: cover;
@@ -268,9 +266,7 @@ p {
 	animation-delay: 2.5s;
 }
 
-/* End Hero Section */
 
-/* Services Section */
 #services .services {
 	flex-direction: column;
 	text-align: center;
@@ -316,7 +312,7 @@ p {
 }
 #services  #huertotomate{
 	
-	background-image: url(../img/tomatoes-g73e036082_1920.jpg);
+	background-image: url(../img/tomatoes-5356__340.jpg);
 }
 #services  #frutales{
 	background-image: url(../img/fruits-1114060__340.webp);
@@ -331,7 +327,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(60deg, rgb(4, 76, 4) 0%, rgb(107, 91, 22) 100%);
+	background-image: linear-gradient(60deg, rgb(15, 73, 4) 20%, transparent 100%);
 	opacity: 0.9;
 	z-index: -1;
 }
@@ -350,9 +346,7 @@ p {
 	color: white;
 	text-align: left;
 }
-/* End Services Section */
 
-/* Projects section */
 #projects .projects {
 	flex-direction: column;
 	max-width: 1200px;
@@ -414,7 +408,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	/*background-image: linear-gradient(60deg, green 0%, green 100%);**/
+	
 	opacity: 0.7;
 }
 #projects .project-img img {
@@ -423,9 +417,7 @@ p {
 #projects .project-item:hover .project-img img {
 	transform: scale(1.1);
 }
-/* End Projects section */
 
-/* About Section */
 #about .about {
 	flex-direction: column-reverse;
 	text-align: center;
@@ -471,9 +463,7 @@ p {
 	border: 7px solid rgba(22, 161, 49, 0.24);
 	z-index: -1;
 }
-/* End About Section */
 
-/* contact Section */
 #contact .contact {
 	flex-direction: column;
 	max-width: 1200px;
@@ -481,7 +471,7 @@ p {
 	width: 90%;
 }
 #contact .contact-items {
-	/* max-width: 400px; */
+	
 	width: 100%;
 }
 #contact .contact-item {
@@ -516,9 +506,7 @@ p {
 	line-height: 2rem;
 	font-weight: 500;
 }
-/*End contact Section */
 
-/* Footer */
 #footer {
 	background-image: linear-gradient(60deg, rgb(2, 62, 2) 0%, rgb(137, 130, 11) 100%);
 }
@@ -556,9 +544,7 @@ p {
 	color: white;
 	font-size: 1.3rem;
 }
-/* End Footer */
 
-/* Keyframes */
 @keyframes hamburger_puls {
 	0% {
 		opacity: 1;
@@ -590,9 +576,7 @@ p {
 		font-weight: 500;
 	}
 }
-/* End Keyframes */
 
-/* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
 	.cta {
 		font-size: 2.5rem;
@@ -602,20 +586,16 @@ p {
 		font-size: 6rem;
 	}
 
-	/* Hero */
+	
 	#hero h1 {
 		font-size: 7rem;
 	}
-	/* End Hero */
 
-	/* Services Section */
 	#services .service-bottom .service-item {
 		flex-basis: 45%;
 		margin: 2.5%;
 	}
-	/* End Services Section */
 
-	/* Project */
 	#projects .project-item {
 		flex-direction: row;
 	}
@@ -634,9 +614,7 @@ p {
 	#projects .all-projects .project-img {
 		height: 100%;
 	}
-	/* End Project */
 
-	/* About */
 	#about .about {
 		flex-direction: row;
 	}
@@ -659,9 +637,7 @@ p {
 	#about .col-right h1 {
 		text-align: left;
 	}
-	/* End About */
 
-	/* contact  */
 	#contact .contact {
 		flex-direction: column;
 		padding: 100px 0;
@@ -693,13 +669,13 @@ p {
 		text-align: left;
 		padding-left: 20px;
 	}
-	/* End contact  */
+	
 }
-/* End Media Query For Tablet */
 
-/* Media Query For Desktop */
+
+
 @media only screen and (min-width: 1200px) {
-	/* header */
+	
 	#header .hamburger {
 		display: none;
 	}
@@ -719,11 +695,11 @@ p {
 	#header .nav-list ul a:after {
 		display: none;
 	}
-	/* End header */
+
 
 	#services .service-bottom .service-item {
 		flex-basis: 22%;
 		margin: 1.5%;
 	}
 }
-/* End  Media Query For Desktop */
+
