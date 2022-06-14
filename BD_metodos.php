@@ -78,8 +78,25 @@ function insertarhistorico($id, $tipo){
 function consultarhistoriausuario($id){
     try{
     $base=conectar("admin");
-    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id");
+    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id ORDER BY fecha DESC LIMIT 5" );
     $sql->bindParam(":id",$id);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+}catch(PDOException $e){
+    print $e->getMessage();
+}
+
+}
+function consultarhistoriausuarioporfecha($id,$inicio,$final){
+    try{
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id AND fecha BETWEEN :inicio AND :final ORDER BY fecha DESC " );
+    $sql->bindParam(":id",$id);
+    $sql->bindParam(":inicio",$inicio);
+    $sql->bindParam(":final",$final);
     $sql->execute();
     $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
     $sql=null;

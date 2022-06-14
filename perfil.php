@@ -3,11 +3,11 @@ require "BD_metodos.php";
 session_start();
 $imagen_actual;
 if (isset($_POST["Guardar"])) {
-  
 
-   
 
-    if (isset($_FILES['nuevaimagen'])&& $_FILES['nuevaimagen']['error'] === UPLOAD_ERR_OK) {
+
+
+    if (isset($_FILES['nuevaimagen']) && $_FILES['nuevaimagen']['error'] === UPLOAD_ERR_OK) {
         $imagen = $_POST['nuevaimagen'];
         $mensaje_error;
         //Obtener detalles del fichero
@@ -35,16 +35,16 @@ if (isset($_POST["Guardar"])) {
                 $imagen_actual_ruta = $_SESSION["img"];
                 $imagen_actual_aux = explode("/", $imagen_actual_ruta);
                 $imagen_actual = end($imagen_actual_aux);
-               
+
                 //Aqui compruebo si la imagen por defecto es la que esta,si es el caso no la borro pero si no lo es borro la imagen anterior
                 if ($imagen_actual === "anonimo.png") {
-                   $_SESSION["img"]=$target_path;
+                    $_SESSION["img"] = $target_path;
                     header('Location:perfil.php');
                 } else {
                     unlink($imagen_actual_ruta);
-                    $_SESSION["img"]=$target_path;
+                    $_SESSION["img"] = $target_path;
                     header('Location:perfil.php');
-                } 
+                }
             } else {
                 echo "Ha ocurrido un error, por favor inténtelo de nuevo.<br>";
             }
@@ -58,18 +58,16 @@ if (isset($_POST["Guardar"])) {
     $_SESSION["telefono"] = $_POST["Telefono"];
     $_SESSION["apellido"] = $_POST["Apellido"];
     $_SESSION["correo"] = $_POST["Correo"];
-   
 
-  
-  modificarperfil($_SESSION["id"], $_SESSION["user"], $_SESSION["apellido"], $_SESSION["correo"], $_SESSION["telefono"], $_SESSION["img"]);
-  insertarhistorico($_SESSION["id"],"Modificación");
-  
+
+
+    modificarperfil($_SESSION["id"], $_SESSION["user"], $_SESSION["apellido"], $_SESSION["correo"], $_SESSION["telefono"], $_SESSION["img"]);
+    insertarhistorico($_SESSION["id"], "Modificación");
 }
 if (isset($_POST["Cerrar"])) {
-   session_destroy();
-   header('Location: index.php');
-      
-  }
+    session_destroy();
+    header('Location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,9 +79,9 @@ if (isset($_POST["Cerrar"])) {
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-   
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.css" />
-   
+
     <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/fontawesome.css" rel="stylesheet" />
     <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/brands.css" rel="stylesheet" />
     <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/solid.css" rel="stylesheet" />
@@ -92,6 +90,7 @@ if (isset($_POST["Cerrar"])) {
 
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -106,30 +105,75 @@ if (isset($_POST["Cerrar"])) {
                 <form action="perfil.php" method="post" enctype="multipart/form-data">
                     <div class="row pt-5">
                         <div class="col-5">
-                            <img src="<?php echo $_SESSION["img"] ?>"  class="picture-src" id="wizardPicturePreview" alt="" width="100%">
-                            <input type="file" class="btn btn-dark id="wizard-picture" name="nuevaimagen">
+                            <img src="<?php echo $_SESSION["img"] ?>" class="picture-src" id="wizardPicturePreview" alt="" width="100%">
+                            <input type="file" class="btn btn-dark id=" wizard-picture" name="nuevaimagen">
                         </div>
                         <div class="col-7">
                             <ul class="list-group list-group-flush px-5">
                                 <li class="list-group-item">Nombre: <input class="px-2 rounded" type="text" id="Usuario" name="Usuario" style="border: 0" readonly="true" value="<?php echo $_SESSION["user"] ?>"> </li>
                                 <li class="list-group-item">Apellido: <input class="px-2 rounded" type="text" id="Apellido" name="Apellido" style="border: 0" readonly="true" value="<?php echo $_SESSION["apellido"] ?>"> </li>
                                 <li class="list-group-item">Correo electrónico: <input class="px-2 rounded" type="text" id="Correo" name="Correo" style="border: 0" readonly="true" value="<?php echo $_SESSION["correo"] ?>"> </li>
-                                <li class="list-group-item">Número de teléfono: <input class="px-2 rounded" type="text" id="Telefono" name="Telefono" style="border: 0" readonly="true" value="<?php echo $_SESSION["telefono"] ?>"> </li>                                
+                                <li class="list-group-item">Número de teléfono: <input class="px-2 rounded" type="text" id="Telefono" name="Telefono" style="border: 0" readonly="true" value="<?php echo $_SESSION["telefono"] ?>"> </li>
                                 <li class="list-group-item">
-                                <a type="button" class="btn btn-dark " onclick="editarCampos()">Editar</a>
-                                <input type="submit" class="btn btn-dark " value="Guardar Cambios" name="Guardar" />
-                                <input type="submit" class="btn btn-dark " value="Cerrar sesión" name="Cerrar" />
+                                    <a type="button" class="btn btn-dark " onclick="editarCampos()">Editar</a>
+                                    <input type="submit" class="btn btn-dark " value="Guardar Cambios" name="Guardar" />
+                                    <input type="submit" class="btn btn-dark " value="Consultar historial" name="Historial" />
+                                    <input type="submit" class="btn btn-dark " value="Cerrar sesión" name="Cerrar" />
+
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </form>
             </div>
+
         </div>
 
 
 
+
     </div>
+    <?php if (isset($_POST["Historial"]) || isset($_POST["Boton_Fecha"])) {
+        $historia = consultarhistoriausuario($_SESSION["id"]);
+        if (isset($_POST["Boton_Fecha"])){
+            echo str_replace( "-","",$_POST["Fecha_Inicio"]);
+            echo $_POST["Fecha_Final"];
+            $historia = consultarhistoriausuarioporfecha($_SESSION["id"],str_replace( "-","",$_POST["Fecha_Inicio"]),str_replace( "-","",$_POST["Fecha_Final"]));
+        }
+
+            echo " 
+        <form action='perfil.php' method='post'>
+        <input type='date' class='btn btn-dark '  name='Fecha_Inicio' />
+        <input type='date' class='btn btn-dark '  name='Fecha_Final'/>
+        <input type='submit' class='btn btn-dark ' value='Filtrar' name='Boton_Fecha' />
+        </form>
+        <table class='table table-dark table-striped'>
+    <thead>
+        <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Fecha</th>
+            <th scope='col'>Tipo</th>
+        </tr>
+    </thead>
+    <tbody>";
+        for ($i = 0; $i < sizeof($historia); $i++) {
+            echo
+            "
+            <tr>
+                <th scope='row'>$i</th>
+                <td>" . $historia[$i]['fecha'] . "</td>
+                <td>" . $historia[$i]['tipo_operacion'] . "</td>
+              
+            </tr>";
+        }
+        echo "
+    </tbody>
+</table>";
+    }
+    ?>
+
+
+
 </body>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script>
