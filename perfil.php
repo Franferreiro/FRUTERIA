@@ -8,6 +8,7 @@ if (isset($_POST["Guardar"])) {
 
 
     if (isset($_FILES['nuevaimagen']) && $_FILES['nuevaimagen']['error'] === UPLOAD_ERR_OK) {
+        
         $imagen = $_POST['nuevaimagen'];
         $mensaje_error;
         //Obtener detalles del fichero
@@ -106,7 +107,7 @@ if (isset($_POST["Cerrar"])) {
                     <div class="row pt-5">
                         <div class="col-5">
                             <img src="<?php echo $_SESSION["img"] ?>" class="picture-src" id="wizardPicturePreview" alt="" width="100%">
-                            <input type="file" class="btn btn-dark id=" wizard-picture" name="nuevaimagen">
+                            <input type="file" class="btn btn-dark id="wizard-picture" name="nuevaimagen">
                         </div>
                         <div class="col-7">
                             <ul class="list-group list-group-flush px-5">
@@ -133,22 +134,37 @@ if (isset($_POST["Cerrar"])) {
 
 
     </div>
+
     <?php if (isset($_POST["Historial"]) || isset($_POST["Boton_Fecha"])) {
         $historia = consultarhistoriausuario($_SESSION["id"]);
-        if (isset($_POST["Boton_Fecha"])){
+        if (isset($_POST["Boton_Fecha"])) {
+           
+            if(!empty($_POST["Fecha_Inicio"]) && !empty($_POST["Fecha_Final"])){
+               
+            $historia = consultarhistoriausuarioporfecha($_SESSION["id"], $_POST["Fecha_Inicio"], $_POST["Fecha_Final"]);
+            }elseif(!empty($_POST["selectordetipo"])){
+                
+                $historia=consultarhistoriausuarioportipo($_SESSION["id"],$_POST["selectordetipo"]);
 
-            echo $_POST["Fecha_Inicio"]. "<br>";
-            echo $_POST["Fecha_Final"];
-            $historia = consultarhistoriausuarioporfecha($_SESSION["id"],$_POST["Fecha_Inicio"],$_POST["Fecha_Final"]);
+            }
         }
 
-            echo " 
+        echo " 
         <form action='perfil.php' method='post'>
         <input type='date' class='btn btn-dark '  name='Fecha_Inicio' />
         <input type='date' class='btn btn-dark '  name='Fecha_Final'/>
         <input type='submit' class='btn btn-dark ' value='Filtrar' name='Boton_Fecha' />
+        <div class='col-4'>
+        <select name='selectordetipo' class='form-select' aria-label='Default select example'>
+        <option selected value=False >Busca por el tipo</option>
+        <option value='Registro'>Registro</option>
+        <option value='Login'>Login</option>
+        <option value='Modificación'>Modificación</option>
+        <option value='Reserva'>Reserva</option>
+        </select>
+        </div>
         </form>
-        <table class='table table-dark table-striped'>
+        <table class='table table-info table-striped'>
     <thead>
         <tr>
             <th scope='col'>#</th>

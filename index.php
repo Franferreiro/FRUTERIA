@@ -66,6 +66,7 @@ session_start();
   
   <section id="services">
     <div class="services container">
+      <form action="reservas.php" method="$_POST">
       <div class="service-top">
         <h1 class="section-title">Rese<span>r</span>vas</h1>
         <p>Ven a recoger las frutas y vegetales directamente del árboly del huerto, escoge tú mismo el que más te guste y comprueba de primera mano que es fresco y libre de conservantes</p>
@@ -75,35 +76,36 @@ session_start();
 
           <h2>Huerto de tomates</h2>
           <p>Puede que sea su brillante color, su delicioso sabor o su sorprende versatilidad, pero lo cierto es que nuestros tomates son un alimento con mucho «sex appeal».</p>
-          <button class="cta">Reservar</button>
+          <input type="submit" value="Reservar" name="tomates" class="cta"/>
         </div>
         <div class="service-item" id="huertocebolla">
 
           <h2>Huerto de cebollas</h2>
           <p>La cebolla es un producto básico de la cocina que no debería faltar en el huerto familiar. Es una hortaliza adaptable a diferentes climas y sustratos, fácil de producir.</p>
-          <button class="cta">Reservar</button>
+          <a href="reservas.php" class="cta">Reservar</a>
         </div>
         <div class="service-item " id="huertopatata">
 
           <h2>Huerto de patatas</h2>
           <p>Las mejores patatas libes de químicos y atitivos,sembradas lo más naturalmente posible para que tu mismo las lleves del huerto a la cocina.</p>
-          <button class="cta">Reservar</button>
+          <a href="reservas.php" class="cta">Reservar</a>
         </div>
         <div class="service-item" id="huertolechuga">
 
           <h2>Huerto de lechugas</h2>
           <p>Lechuga verde y fresca, todo lo que necesitas para una buena ensalada, añadele algunos de nuestros tomates y algo de nuestra cebolla y será perfecta.</p>
-          <button class="cta">Reservar</button>
+          <a href="reservas.php" class="cta">Reservar</a>
         </div>
 
         <div class="service-item" id="frutales">
 
           <h2>Finca de frutales</h2>
           <p>Recoge las frutas que quieras; desde manzanas,limones,melocotones o lo que más te apetezca, escoge a tu gusto y cercionate de primera mano que estan maduras y jugosas.</p>
-          <button class="cta">Reservar</button>
+          <a href="reservas.php" class="cta">Reservar</a>
         </div>
 
       </div>
+      </form>
     </div>
   </section>
   

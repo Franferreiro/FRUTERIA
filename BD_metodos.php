@@ -107,5 +107,19 @@ function consultarhistoriausuarioporfecha($id,$inicio,$final){
 }
 
 }
-
+function consultarhistoriausuarioportipo($id,$tipo){
+    try{
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM historico WHERE Id_usuario=:id AND tipo_operacion=:tipo_operacion  ORDER BY fecha DESC " );
+    $sql->bindParam(":id",$id);
+    $sql->bindParam(":tipo_operacion",$tipo);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+}catch(PDOException $e){
+    print $e->getMessage();
+}
+}
 ?>
