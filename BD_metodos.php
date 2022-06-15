@@ -122,4 +122,25 @@ function consultarhistoriausuarioportipo($id,$tipo){
     print $e->getMessage();
 }
 }
+function listarparcelas(){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM parcelas ");
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
+function buscarparcelaportipo($tipo){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM parcelas WHERE tipo=:tipo ");
+    $sql->bindParam(":tipo",$tipo);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
 ?>
