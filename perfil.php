@@ -66,6 +66,7 @@ if (isset($_POST["Guardar"])) {
     insertarhistorico($_SESSION["id"], "Modificación");
 }
 if (isset($_POST["Cerrar"])) {
+    insertarhistorico($_SESSION["id"], "Logout");
     session_destroy();
     header('Location: index.php');
 }
@@ -83,9 +84,7 @@ if (isset($_POST["Cerrar"])) {
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.css" />
 
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/fontawesome.css" rel="stylesheet" />
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/brands.css" rel="stylesheet" />
-    <link href="../../pagina/Librerias/fontawesome-free-5.15.4-web/css/solid.css" rel="stylesheet" />
+   
     <link rel="stylesheet" href="css/styleindex.css">
     <link rel="stylesheet" href="css/styleperfil.css">
 
@@ -107,7 +106,7 @@ if (isset($_POST["Cerrar"])) {
                     <div class="row pt-5">
                         <div class="col-5">
                             <img src="<?php echo $_SESSION["img"] ?>" class="picture-src" id="wizardPicturePreview" alt="" width="100%">
-                            <input type="file" class="btn btn-dark id="wizard-picture" name="nuevaimagen">
+                            <input type="file" class="btn btn-dark" id="wizard-picture" name="nuevaimagen">
                         </div>
                         <div class="col-7">
                             <ul class="list-group list-group-flush px-5">
@@ -116,10 +115,10 @@ if (isset($_POST["Cerrar"])) {
                                 <li class="list-group-item">Correo electrónico: <input class="px-2 rounded" type="text" id="Correo" name="Correo" style="border: 0" readonly="true" value="<?php echo $_SESSION["correo"] ?>"> </li>
                                 <li class="list-group-item">Número de teléfono: <input class="px-2 rounded" type="text" id="Telefono" name="Telefono" style="border: 0" readonly="true" value="<?php echo $_SESSION["telefono"] ?>"> </li>
                                 <li class="list-group-item">
-                                    <a type="button" class="btn btn-dark " onclick="editarCampos()">Editar</a>
-                                    <input type="submit" class="btn btn-dark " value="Guardar Cambios" name="Guardar" />
-                                    <input type="submit" class="btn btn-dark " value="Consultar historial" name="Historial" />
-                                    <input type="submit" class="btn btn-dark " value="Cerrar sesión" name="Cerrar" />
+                                    <a type="button" class="btn btn-outline-success " onclick="editarCampos()">Editar</a>
+                                    <input type="submit" class="btn btn-outline-success " value="Guardar Cambios" name="Guardar" />
+                                    <input type="submit" class="btn btn-outline-success" value="Consultar historial" name="Historial" />
+                                    <input type="submit" class="btn btn-outline-success " value="Cerrar sesión" name="Cerrar" />
 
                                 </li>
                             </ul>
@@ -159,6 +158,7 @@ if (isset($_POST["Cerrar"])) {
         <option selected value=False >Busca por el tipo</option>
         <option value='Registro'>Registro</option>
         <option value='Login'>Login</option>
+        <option value='Reserva'>Logout</option>
         <option value='Modificación'>Modificación</option>
         <option value='Reserva'>Reserva</option>
         </select>

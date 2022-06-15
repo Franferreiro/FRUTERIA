@@ -76,7 +76,7 @@ session_start();
 
           <h2>Huerto de tomates</h2>
           <p>Puede que sea su brillante color, su delicioso sabor o su sorprende versatilidad, pero lo cierto es que nuestros tomates son un alimento con mucho «sex appeal».</p>
-          <input type="submit" value="Reservar" name="tomates" class="cta"/>
+          <a href="reservas.php" class="cta">Reservar</a>
         </div>
         <div class="service-item" id="huertocebolla">
 
@@ -93,7 +93,7 @@ session_start();
         <div class="service-item" id="huertolechuga">
 
           <h2>Huerto de lechugas</h2>
-          <p>Lechuga verde y fresca, todo lo que necesitas para una buena ensalada, añadele algunos de nuestros tomates y algo de nuestra cebolla y será perfecta.</p>
+          <p>Lechuga verde y fresca, todo lo que necesitas para una buena ensalada, añadele algunos de nuestros tomates y nuestras cebollas y será perfecta.</p>
           <a href="reservas.php" class="cta">Reservar</a>
         </div>
 
