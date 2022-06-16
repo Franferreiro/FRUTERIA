@@ -11,10 +11,17 @@ if (isset($_POST['tipohuerto'])) {
 }
 if (isset($_POST['buscarhoras'])) {
 $horas=comprobarhoras($_POST['fecha_reserva'],$huerto->Id);
-print_r($horas);
-echo sizeof($horas);
+
 
 }
+if (isset($_POST['hacerreserva'])) {
+  insertarreserva($huerto->Id,$_POST['fecha_reserva'],$_POST['horashuerto'],$_SESSION['id']);
+  insertarhistorico($_SESSION['id'],"Reserva");
+  echo "<script>alert('Reserva procesada exitosamente');</script>";
+
+  
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +70,11 @@ echo sizeof($horas);
 
                   <?php
                   for ($i = 0; $i < sizeof($listaparcelas); $i++) {
-                    echo "<option value='" . $listaparcelas[$i]['tipo'] . "'>Huerto de " . $listaparcelas[$i]['tipo'] . "</option>";
+                    echo "<option";
+                    if(isset($_POST['tipohuerto'])){
+                    if ($_POST['tipohuerto']==$listaparcelas[$i]['tipo']){ echo " selected";}
+                    }
+                   echo" value='" . $listaparcelas[$i]['tipo'] . "'>Huerto de " . $listaparcelas[$i]['tipo'] . "</option>";
                   }
                   ?>
                 </select>
@@ -77,7 +88,7 @@ echo sizeof($horas);
           <div class="d-flex">
             <div class="col-4">
 
-              <input type="date" name="fecha_reserva" style="width: 100%;">
+              <input type="date" name="fecha_reserva" value="<?php if (isset($_POST['fecha_reserva'])) echo $_POST['fecha_reserva']; ?>" style="width: 100%;">
 
 
             </div>
@@ -92,9 +103,8 @@ echo sizeof($horas);
                   for ($i = 18; $i <21; $i++) {
                     $bandera=false;
                    for($j=0;$j<sizeof($horas);$j++){
-                    if(($hora[$j]['hora'])==$i){
+                    if(($horas[$j][0])==$i){
                       $bandera=true;
-                      echo $hora[$j]['hora'];
                     }
                    }
                    if(!$bandera){
@@ -107,7 +117,7 @@ echo sizeof($horas);
               </select>
             </div>
           </div>
-        </form>
+       
         <h1 class="section-title"><?php if (isset($_POST['buscartipo'])) {
                                     echo "Huerto de " . $huerto->tipo;
                                   } else echo 'Huerto de tomates' ?></h1>
@@ -123,8 +133,8 @@ echo sizeof($horas);
                                       echo $huerto->metros;
                                     } else echo '400' ?></h2>
 
-        <a href="registro.php" class="cta">Reservar</a>
-
+        <input type="submit" value="Reservar" name="hacerreserva" class="cta"></input>
+        </form>
   </section>
   </div>
   </div>

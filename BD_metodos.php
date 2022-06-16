@@ -154,4 +154,20 @@ function comprobarhoras($dia,$id){
     $base=null;
     return $resultado;
 }
+function insertarreserva( $idparcela, $fecha, $hora, $idusuario){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("INSERT INTO reservas(Id_parcela,fecha,hora,Id_usuario) VALUES(:id_parcela,:fecha,:hora,:idusuario)");
+        $sql->bindParam(":id_parcela",$idparcela);
+        $sql->bindParam(":fecha",$fecha);
+        $sql->bindParam(":hora",$hora);
+        $sql->bindParam(":idusuario",$idusuario);
+        $sql->execute();
+        $sql=null;
+        $base=null;
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+
+}
 ?>

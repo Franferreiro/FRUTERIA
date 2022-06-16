@@ -27,6 +27,7 @@ if (isset($_POST["boton"])) {
                 $_SESSION["correo"] = $usuario[0]["Correo"];
                 $_SESSION["telefono"] = $usuario[0]["Telefono"];
                 $_SESSION["img"] = $usuario[0]["Imagen"];
+                $_SESSION["rol"] = $usuario[0]["Rol"];
                 insertarhistorico($_SESSION["id"],"Login");
                 header('Location: index.php');
             }

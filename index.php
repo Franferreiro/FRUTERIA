@@ -39,6 +39,11 @@ session_start();
             <li><a href="#about" data-after="Acerca de">Acerca de</a></li>
             <li><a href="#contact" data-after="Contacto">Contacto</a></li>
             <?php
+              if(isset($_SESSION)){
+                if (($_SESSION["rol"]==1)) {
+                  echo "<li><a href='administrar.php' data-after='Contacto'>Admin</a></li>";
+                } 
+              }
             if (isset($_SESSION["img"])) {
               echo "<li><a href='perfil.php' data-after='Contacto'> <img class='imgnav' src='". $_SESSION['img'] ."' ></a></li>";
             } else {
