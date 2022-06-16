@@ -1,10 +1,16 @@
 <?php
 require "BD_metodos.php";
-require "huerto.php";
+require_once ("autoload.php");
+use Clase\huerto;
 session_start();
 $listaparcelas = listarparcelas();
 $huerto;
 $horas;
+if(empty($_SESSION['id'])){
+  header('Location: login.php');
+
+}
+
 if (isset($_POST['tipohuerto'])) {
   $parcelaselec = buscarparcelaportipo($_POST['tipohuerto']);
   $huerto = new huerto($parcelaselec[0]['Id'], $parcelaselec[0]['tipo'], $parcelaselec[0]['precio'], $parcelaselec[0]['metros'], $parcelaselec[0]['imagen'], $parcelaselec[0]['descripcion']);
@@ -14,13 +20,19 @@ $horas=comprobarhoras($_POST['fecha_reserva'],$huerto->Id);
 
 
 }
-if (isset($_POST['hacerreserva'])) {
-  insertarreserva($huerto->Id,$_POST['fecha_reserva'],$_POST['horashuerto'],$_SESSION['id']);
-  insertarhistorico($_SESSION['id'],"Reserva");
-  echo "<script>alert('Reserva procesada exitosamente');</script>";
-
-  
+if ((isset($_POST['hacerreserva'])) ) {
+  if(!empty($_POST['fecha_reserva'])){
+    if(!empty($_POST['horashuerto'])){
+      insertarreserva($huerto->Id,$_POST['fecha_reserva'],$_POST['horashuerto'],$_SESSION['id']);
+      insertarhistorico($_SESSION['id'],"Reserva");
+      echo "<script>alert('Reserva procesada exitosamente');</script>";
+    }else
+    echo "<script>alert('Debes seleccionar una hora');</script>";
+  }else
+  echo "<script>alert('Debes seleccionar un dia');</script>";
   }
+   
+  
 
 ?>
 <!DOCTYPE html>
@@ -109,7 +121,8 @@ if (isset($_POST['hacerreserva'])) {
                    }
                    if(!$bandera){
                     echo "<option value='" . $i . "'>" . $i .":00". "</option>";
-                   }
+                   }else
+                   echo "<option value='' >Reservado</option>";
                   }
                 }
                   ?>

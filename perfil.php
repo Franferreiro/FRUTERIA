@@ -68,7 +68,7 @@ if (isset($_POST["Guardar"])) {
 if (isset($_POST["Cerrar"])) {
     insertarhistorico($_SESSION["id"], "Logout");
     session_destroy();
-    header('Location: index.php');
+    header('Location:index.php');
 }
 ?>
 <!DOCTYPE html>

@@ -29,7 +29,7 @@
             <li><a href="index.php#contact" data-after="Contacto">Contacto</a></li>
             
             <?php
-             if(isset($_SESSION)){
+             if(!empty($_SESSION)){
               if (($_SESSION["rol"]==1)) {
                 echo "<li><a href='administrar.php' data-after='Contacto'>Admin</a></li>";
               } 
