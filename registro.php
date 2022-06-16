@@ -39,7 +39,7 @@ $_POST['nombre']=test_input($_POST["nombre"]);
 $_POST['apellidos']=test_input($_POST["apellidos"]);
 $comprobarcorreo=traerusuarioporcorreo($_POST['correo']);
 if(!empty($comprobarcorreo)){
-  $errores=$errores."Ya hay una cuenta asociada a ese correo";
+  $errores=$errores."Ya hay una cuenta asociada a este correo";
 
 }
 if(!$error && empty($errores)){
