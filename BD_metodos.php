@@ -143,4 +143,15 @@ function buscarparcelaportipo($tipo){
     return $resultado;
 
 }
+function comprobarhoras($dia,$id){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT hora FROM reservas WHERE fecha=:dia AND Id_parcela=:id");
+    $sql->bindParam(":dia",$dia);
+    $sql->bindParam(":id",$id);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_NUM);
+    $sql=null;
+    $base=null;
+    return $resultado;
+}
 ?>

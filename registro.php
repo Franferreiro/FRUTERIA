@@ -37,8 +37,14 @@ if (isset( $_POST["registrar"] )) {
   }
 $_POST['nombre']=test_input($_POST["nombre"]);
 $_POST['apellidos']=test_input($_POST["apellidos"]);
- 
+$comprobarcorreo=traerusuarioporcorreo($_POST['correo']);
+if(!empty($comprobarcorreo)){
+  $errores=$errores."Ya hay una cuenta asociada a ese correo";
+
+}
 if(!$error && empty($errores)){
+  $comprobarcorreo=traerusuarioporcorreo($_POST['correo']);
+ 
   $hasheada=password_hash($_POST['psw1'],PASSWORD_DEFAULT);
   registrarusuarios($_POST['nombre'], $_POST['apellidos'], $_POST['correo'], $_POST['telefono'], $hasheada);
   $usuario = traerusuarioporcorreo($_POST['correo']);
