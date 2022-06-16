@@ -158,7 +158,7 @@ if (isset($_POST["Cerrar"])) {
         <option selected value=False >Busca por el tipo</option>
         <option value='Registro'>Registro</option>
         <option value='Login'>Login</option>
-        <option value='Reserva'>Logout</option>
+        <option value='Logout'>Logout</option>
         <option value='Modificación'>Modificación</option>
         <option value='Reserva'>Reserva</option>
         </select>

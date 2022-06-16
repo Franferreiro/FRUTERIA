@@ -60,11 +60,11 @@ if (isset($_POST["boton"])) {
             <h4>Inicio</h4>
 
 
-            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo" value="<?php if (isset($_POST['correo'])) echo $_POST['correo']; ?>">
             <input class="controls" type="password" name="pwd" id="contraseña" placeholder="Ingrese su Contraseña">
 
             <input class="botons" name="boton" type="submit" value="Inicio">
-            <p>Puedes registrarte <a style="color:#07a231" href="registro.php"> aquí</a>.</p>
+            <p style="color: white;">Puedes registrarte <a style="color:#07a231" href="registro.php"> aquí</a>.</p>
              <?php if ($errorusuario) {
                 echo "<p style='color:red'>Usuario no encontrado</p>";
             }else if($errorcontraseña){
