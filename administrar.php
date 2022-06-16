@@ -4,9 +4,15 @@ session_start();
 
 $listaparcelas = listarparcelas();
 
-echo "<br> <br><br><br>";
-print_r($listaparcelas);
+if(isset($_POST['añadirhuerto'])){
+    echo "alalla";
+    añadirrhuerto($_POST['tipohuertoañadir'],$_POST['preciohuertoañadir'],$_POST['metroshuertoañadir'],$_POST['imagenhuertoañadir'],$_POST['descripcionhuertoañadir']);
+}
 
+if(isset($_POST['borrarhuerto'])){
+    echo "alalla";
+   borrarrhuerto($_POST['huertoseleccionado']);
+}
 
 
 
@@ -34,6 +40,7 @@ print_r($listaparcelas);
             <?php include "_navbar.php" ?>
         </nav>
     </header>
+    <form action="" style="width:100% ;" method="post">
     <div class="container d-flex flex-column">
         <div class="row" style="width:100% ;">
             <div class="col-8 m-auto p-5">
@@ -62,7 +69,7 @@ print_r($listaparcelas);
                         <td>" . $listaparcelas[$i]["precio"] . "</td>
                         <td>" . $listaparcelas[$i]["metros"] . "</td>
                         <td>" . $listaparcelas[$i]["descripcion"] . "</td>
-                        <td> <input type='checkbox' name='" . $listaparcelas[$i]["Id"] . "'></td>
+                        <td> <input type='radio' name='huertoseleccionado' value='" . $listaparcelas[$i]["Id"] . "'></td>
                     </tr>";
                         }
 
@@ -73,18 +80,18 @@ print_r($listaparcelas);
                 </table>
             </div>
         </div>
-        <form action="" style="width:100% ;">
+      
             <div class="row" style="width:100% ;">
 
                 <div class="col-6 p-5 m-auto d-flex justify-content-around">
-                    <button type="button" class="btn btn-success px-4" style="font-size: 20px;">Borrar</button>
+                  
                     <button type="button" class="btn btn-success px-4" style="font-size: 20px;">Modificar</button>
                     <!-- Button trigger modal -->
 
                     <button type="button" class="btn btn-success px-4" data-bs-toggle="modal" data-bs-target="#anadirModal" style="font-size: 20px;">
                         Añadir
                     </button>
-                    <button type="button" class="btn btn-success px-4" data-bs-toggle="modal" data-bs-target="#borrarModal" style="font-size: 20px;">
+                    <button type="submit" name="borrarhuerto" class="btn btn-success px-4"  style="font-size: 20px;">
                         Borrar
                     </button>
 
@@ -99,52 +106,36 @@ print_r($listaparcelas);
                                 <div class="modal-body">
 
                                     <div class="col-6 m-auto mb-3 ">
-                                        <input type="text" class="fs-2 form-control" placeholder="Tipo de huerto">
+                                        <input type="text" class="fs-2 form-control" name="tipohuertoañadir" placeholder="Tipo de huerto">
 
                                     </div>
                                     <div class="col-6 m-auto mb-3">
-                                        <input type="text" class="fs-2 form-control" placeholder="Precio">
+                                        <input type="text" class="fs-2 form-control" name="preciohuertoañadir" placeholder="Precio">
                                     </div>
                                     <div class="col-6 m-auto mb-3 ">
-                                        <input type="text" class="fs-2 form-control" placeholder="Metros cuadrados">
+                                        <input type="text" class="fs-2 form-control" name="metroshuertoañadir" placeholder="Metros cuadrados">
+                                    </div>
+                                    <div class="col-6 m-auto mb-3 ">
+                                        <input type="text" class="fs-2 form-control" name="imagenhuertoañadir" placeholder="Imagen">
                                     </div>
                                     <div class="col-8 m-auto mb-3">
                                         <div class="input-group">
                                             <span class="fs-2 input-group-text">Descripción</span>
-                                            <textarea class="fs-2 form-control" aria-label="With textarea"></textarea>
+                                            <textarea class="fs-2 form-control" name="descripcionhuertoañadir" aria-label="With textarea"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
                                     <button type="button" class="fs-2 btn btn-secondary mx-3" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="fs-2 btn btn-primary mx-3" name="anadir">Guardar</button>
+                                    <button type="submit" class="fs-2 btn btn-primary mx-3" name="añadirhuerto">Guuuardar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="borrarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog " style="max-width: 1200px;">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="fs-2 btn btn-secondary mx-3" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="fs-2 btn btn-primary mx-3" name="anadir">Guardar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
-        </form>
+       
         <div class="row" style="width:100% ;">
             <div class="col-8 m-auto p-5">
 
@@ -180,6 +171,7 @@ print_r($listaparcelas);
             </div>
         </div>
     </div>
+    </form>
 
 
 

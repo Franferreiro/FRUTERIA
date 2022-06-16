@@ -170,4 +170,34 @@ function insertarreserva( $idparcela, $fecha, $hora, $idusuario){
         }
 
 }
+function añadirrhuerto( $tipo, $precio, $metros, $imagen,$descripcion){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("INSERT INTO parcelas(tipo,precio,metros,imagen,descripcion) VALUES(:tipo,:precio,:metros,:imagen,:descripcion)");
+        $sql->bindParam(':tipo', $tipo);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':metros', $metros);
+        $sql->bindParam(':imagen', $imagen);
+        $sql->bindParam(':descripcion', $descripcion);
+       
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function borrarrhuerto( $id){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("DELETE FROM parcelas WHERE Id=:id");
+        $sql->bindParam(':id', $id);       
+        $sql->execute();
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
 ?>

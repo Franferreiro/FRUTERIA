@@ -1,5 +1,5 @@
 <?php
-namespace Clase;
+
 class huerto{
     private $Id;
     private $tipo;

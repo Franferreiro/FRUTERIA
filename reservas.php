@@ -1,7 +1,8 @@
 <?php
 require "BD_metodos.php";
-require_once ("autoload.php");
-use Clase\huerto;
+require "huerto.php";
+
+
 session_start();
 $listaparcelas = listarparcelas();
 $huerto;
@@ -66,7 +67,7 @@ if ((isset($_POST['hacerreserva'])) ) {
 
       <div class="col-left">
         <div class="about-img">
-          <img src="<?php if (isset($_POST['buscartipo'])) {
+          <img src="<?php if (isset($_POST['tipohuerto'])) {
                       echo $huerto->imagen;
                     } else echo 'img/tomatoes-5356__340.jpg' ?>" alt="img">
         </div>
@@ -131,18 +132,18 @@ if ((isset($_POST['hacerreserva'])) ) {
             </div>
           </div>
        
-        <h1 class="section-title"><?php if (isset($_POST['buscartipo'])) {
+        <h1 class="section-title"><?php if (isset($_POST['tipohuerto'])) {
                                     echo "Huerto de " . $huerto->tipo;
                                   } else echo 'Huerto de tomates' ?></h1>
 
-        <p style="color:white"><?php if (isset($_POST['buscartipo'])) {
+        <p style="color:white"><?php if (isset($_POST['tipohuerto'])) {
                                   echo $huerto->descripcion;
                                 } else echo 'Puede que sea su brillante color, su delicioso sabor o su sorprende versatilidad, pero lo cierto es que nuestros tomates son un alimento con mucho «sex appeal». Escoge una de nuestras variedades, la que más te guste. Nosotros te proporcionamos las herramientas y utensilios necesarios para la actividad.' ?>
         </p>
-        <h2 style="color:black">Precio: <?php if (isset($_POST['buscartipo'])) {
+        <h2 style="color:black">Precio: <?php if (isset($_POST['tipohuerto'])) {
                                           echo $huerto->precio;
                                         } else echo '4' ?> €</h2>
-        <h2 style="color:black">M²: <?php if (isset($_POST['buscartipo'])) {
+        <h2 style="color:black">M²: <?php if (isset($_POST['tipohuerto'])) {
                                       echo $huerto->metros;
                                     } else echo '400' ?></h2>
 
