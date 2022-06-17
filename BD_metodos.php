@@ -211,7 +211,7 @@ function buscarparcelaporid($id){
     return $resultado;
 
 }
-function modificarhuerto( $id,$tipo, $precio, $metros, $imagen,$descripcion){
+function modificarhuerto( $id, $tipo, $precio, $metros, $imagen,$descripcion){
     try {
         $base = conectar("admin");
         $sql = $base->prepare("UPDATE parcelas SET tipo=:tipo , precio=:precio , metros=:metros, imagen=:imagen, descripcion=:descripcion WHERE Id=:id");

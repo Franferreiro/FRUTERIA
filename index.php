@@ -212,12 +212,12 @@ session_start();
           <div class="project-info">
             <h1>Uva</h1>
 
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <h2>Albariño</h2>
+            <p>La uva es menuda, y de tardía maduración. Tiene un color amarillo pálido con algunos toques de verde.</p>
+            <p>Precio: 5.80 €/Kg</p>
+            <h2>Fresa</h2>
+            <p>La baya es pequeña, elíptica y uniforme de color negro azulado. El racimo también es pequeño y ligeramente apretado</p>
+            <p>Precio: 5.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/uvas-1057433822-170667a.jpg" alt="img">
@@ -226,12 +226,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Higo</h1>
-
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>Quizas por ser una fruta tan dulce y jugosa muchas personas creen que tiene muchas calorías. Sin embargo, su aporte calórico si se consume fresco es solo un poco mayor que el de las manzanas</p>
             <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">
@@ -241,13 +236,8 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Melocotón</h1>
-
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <p>Al contrario de lo que pueda parecer debido a su sabor dulce, el melocotón no es de las frutas que más hidratos de carbono y energía aportan. Destaca su riqueza de fibra, que mejora el tránsito intestinal y su elevada cantidad de agua</p>
+            <p>Precio: 5.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/peaches-3529802__340.webp" alt="img">
@@ -256,13 +246,8 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Ciruela</h1>
-
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <p>Esta composición nutricional convierte a la ciruela en un alimento energético, alcalinizante, depurativo, refrescante, ligero y tonificante, capaz de estimular el sistema nervioso y combatir la fatiga.</p>
+            <p>Precio: 4.70 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/ciruela-71690__340.jpg" alt="img">
@@ -271,13 +256,11 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Naranja</h1>
-
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <p>De su composición nutritiva, destaca su escaso valor energético, gracias a su elevado contenido en agua y su riqueza de vitamina C, ácido fólico y minerales como el potasio, el magnesio y calcio, que apenas se absorbe por el organismo.</p>
+            <p>Precio: 3.80 €/Kg</p>
+            <h2>Mandarina</h2>
+            <p>El componente mayoritario en las mandarinas es el agua y, respecto a otras frutas de su género, aporta menos cantidad de azúcares y por tanto menos calorías. La cantidad de fibra es apreciable y esta se encuentra sobre todo en la parte blanca entre la pulpa y la corteza, por lo que su consumo favorece el tránsito intestinal.</p>
+            <p>Precio: 4.30 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/oranges-1117628__340.jpg" alt="img">
@@ -285,13 +268,9 @@ session_start();
         </div>
         <div class="project-item">
           <div class="project-info">
-            <h1>Cereza</h1>
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
+            <h1>Cereza</h1>           
+            <p>Esta pequeña y evocadora fruta apasiona con su bonito color e increíble sabor, pero el disfrute al aprovechar la temporada se redobla cuando se descubren sus numerosas propiedades y beneficios para la salud.</p>
+            <p>Precio: 5.50 €/Kg</p>
           </div>
           <div class="project-img">
             <img src="./img/cherries-598170__340.jpg" alt="img">
@@ -300,12 +279,7 @@ session_start();
         <div class="project-item">
           <div class="project-info">
             <h1>Limón</h1>
-
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
+            <p>El limón es una fruta muy rica nutricionalmente hablando, ya que aporta multitud de vitaminas y minerales al organismo (como el potasio, el selenio, el hierro y el magnesio) sin apenas calorías ni grasas.</p>
             <p>Precio: 3.30 €/Kg</p>
           </div>
           <div class="project-img">

@@ -8,6 +8,12 @@ session_start();
 
 $listaparcelas = listarparcelas();
 $huertoamodificar;
+$id;
+$tipo;
+$precio;
+$metros;
+$imagen;
+$descripcion;
 
 if (isset($_POST['añadirhuerto'])) {
     añadirrhuerto($_POST['tipohuertoañadir'], $_POST['preciohuertoañadir'], $_POST['metroshuertoañadir'], $_POST['imagenhuertoañadir'], $_POST['descripcionhuertoañadir']);
@@ -21,10 +27,7 @@ if (isset($_POST['huertoseleccionado']) && isset($_POST['modificarhuerto'])) {
     $huertoamodificar = new huerto($huertoporid[0]['Id'], $huertoporid[0]['tipo'], $huertoporid[0]['precio'], $huertoporid[0]['metros'], $huertoporid[0]['imagen'], $huertoporid[0]['descripcion']);
 }
 if (isset($_POST['guardarcambios'])){
-    echo $_POST['preciohuertoañadir'];
-    echo $_POST['lalalala'];
-    echo $huertoamodificar->tipo;
-    modificarhuerto($_POST['idhuertoañadir'],$_POST['tipohuertoañadir'], $_POST['preciohuertoañadir'], $_POST['metroshuertoañadir'], $_POST['imagenhuertoañadir'], $_POST['descripcionhuertoañadir']);
+    modificarhuerto($_POST['idhuertomodificar'],$_POST['tipohuertomodificar'], $_POST['preciohuertomodificar'],$_POST['metroshuertomodificar'], $_POST['imagenhuertomodificar'], $_POST['descripcionhuertomodificar']);
 }
 
 
@@ -59,23 +62,23 @@ if (isset($_POST['guardarcambios'])){
                     <?php if (isset($_POST['huertoseleccionado']) && isset($_POST['modificarhuerto'])) {
                         echo "
                     <div class='col-6 m-auto mb-3 '>
-                    <input type='text' class='fs-2 form-control' name='tipohuertoañadir' placeholder='Tipo de huerto' value=' $huertoamodificar->tipo '>
-                    <input type='text' class='fs-2 form-control' name='idhuertoañadir' placeholder='Tipo de huerto' value=' $huertoamodificar->Id ' hidden>
+                    <input type='text' class='fs-2 form-control' name='tipohuertomodificar' placeholder='Tipo de huerto' value=' $huertoamodificar->tipo '>
+                    <input type='text' class='fs-2 form-control' name='idhuertomodificar' placeholder='Tipo de huerto' value=' $huertoamodificar->Id ' hidden>
         
                 </div>
                 <div class='col-6 m-auto mb-3'>
-                    <input type='text' class='fs-2 form-control' name='preciohuertoañadir' placeholder='Precio' value=' $huertoamodificar->precio '>
+                    <input type='text' class='fs-2 form-control' name='preciohuertomodificar' placeholder='Precio' value=' $huertoamodificar->precio '>
                 </div>
                 <div class='col-6 m-auto mb-3 '>
-                    <input type='text' class='fs-2 form-control' name='metroshuertoañadir' placeholder='Metros cuadrados' value=' $huertoamodificar->metros '>
+                    <input type='text' class='fs-2 form-control' name='metroshuertomodificar' placeholder='Metros cuadrados' value=' $huertoamodificar->metros '>
                 </div>
                 <div class='col-6 m-auto mb-3 '>
-                    <input type='text' class='fs-2 form-control' name='imagenhuertoañadir' placeholder='Imagen' value=' $huertoamodificar->imagen '>
+                    <input type='text' class='fs-2 form-control' name='imagenhuertomodificar' placeholder='Imagen' value=' $huertoamodificar->imagen '>
                 </div>
                 <div class='col-8 m-auto mb-3'>
                     <div class='input-group'>
                         <span class='fs-2 input-group-text'>Descripción</span>
-                        <textarea class='fs-2 form-control' name='descripcionhuertoañadir' aria-label='With textarea'>$huertoamodificar->descripcion</textarea>
+                        <textarea class='fs-2 form-control' name='descripcionhuertomodificar' aria-label='With textarea'>$huertoamodificar->descripcion</textarea>
                     </div>
                 </div>
                 <button type='submit' name='guardarcambios' class='btn btn-success px-4' style='font-size: 20px;'>
