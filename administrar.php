@@ -1,19 +1,31 @@
 <?php
 require "BD_metodos.php";
+require_once "autoload.php";
+
+use Clase\huerto;
+
 session_start();
 
 $listaparcelas = listarparcelas();
+$huertoamodificar;
 
-if(isset($_POST['añadirhuerto'])){
-    echo "alalla";
-    añadirrhuerto($_POST['tipohuertoañadir'],$_POST['preciohuertoañadir'],$_POST['metroshuertoañadir'],$_POST['imagenhuertoañadir'],$_POST['descripcionhuertoañadir']);
+if (isset($_POST['añadirhuerto'])) {
+    añadirrhuerto($_POST['tipohuertoañadir'], $_POST['preciohuertoañadir'], $_POST['metroshuertoañadir'], $_POST['imagenhuertoañadir'], $_POST['descripcionhuertoañadir']);
 }
 
-if(isset($_POST['borrarhuerto'])){
-    echo "alalla";
-   borrarrhuerto($_POST['huertoseleccionado']);
+if (isset($_POST['borrarhuerto'])) {
+    borrarrhuerto($_POST['huertoseleccionado']);
 }
-
+if (isset($_POST['huertoseleccionado']) && isset($_POST['modificarhuerto'])) {
+    $huertoporid = buscarparcelaporid($_POST['huertoseleccionado']);
+    $huertoamodificar = new huerto($huertoporid[0]['Id'], $huertoporid[0]['tipo'], $huertoporid[0]['precio'], $huertoporid[0]['metros'], $huertoporid[0]['imagen'], $huertoporid[0]['descripcion']);
+}
+if (isset($_POST['guardarcambios'])){
+    echo $_POST['preciohuertoañadir'];
+    echo $_POST['lalalala'];
+    echo $huertoamodificar->tipo;
+    modificarhuerto($_POST['idhuertoañadir'],$_POST['tipohuertoañadir'], $_POST['preciohuertoañadir'], $_POST['metroshuertoañadir'], $_POST['imagenhuertoañadir'], $_POST['descripcionhuertoañadir']);
+}
 
 
 ?>
@@ -41,25 +53,53 @@ if(isset($_POST['borrarhuerto'])){
         </nav>
     </header>
     <form action="" style="width:100% ;" method="post">
-    <div class="container d-flex flex-column">
-        <div class="row" style="width:100% ;">
-            <div class="col-8 m-auto p-5">
-
-                <table class="table table-success table-striped ">
+        <div class="container d-flex flex-column">
+            <div class="row" style="width:100% ;">
+                <div class="col-8 m-auto p-5">
+                    <?php if (isset($_POST['huertoseleccionado']) && isset($_POST['modificarhuerto'])) {
+                        echo "
+                    <div class='col-6 m-auto mb-3 '>
+                    <input type='text' class='fs-2 form-control' name='tipohuertoañadir' placeholder='Tipo de huerto' value=' $huertoamodificar->tipo '>
+                    <input type='text' class='fs-2 form-control' name='idhuertoañadir' placeholder='Tipo de huerto' value=' $huertoamodificar->Id ' hidden>
+        
+                </div>
+                <div class='col-6 m-auto mb-3'>
+                    <input type='text' class='fs-2 form-control' name='preciohuertoañadir' placeholder='Precio' value=' $huertoamodificar->precio '>
+                </div>
+                <div class='col-6 m-auto mb-3 '>
+                    <input type='text' class='fs-2 form-control' name='metroshuertoañadir' placeholder='Metros cuadrados' value=' $huertoamodificar->metros '>
+                </div>
+                <div class='col-6 m-auto mb-3 '>
+                    <input type='text' class='fs-2 form-control' name='imagenhuertoañadir' placeholder='Imagen' value=' $huertoamodificar->imagen '>
+                </div>
+                <div class='col-8 m-auto mb-3'>
+                    <div class='input-group'>
+                        <span class='fs-2 input-group-text'>Descripción</span>
+                        <textarea class='fs-2 form-control' name='descripcionhuertoañadir' aria-label='With textarea'>$huertoamodificar->descripcion</textarea>
+                    </div>
+                </div>
+                <button type='submit' name='guardarcambios' class='btn btn-success px-4' style='font-size: 20px;'>
+                Guardar cambios
+            </button>
+                    
+                    ";
+                    } else {
+                        echo "
+                    <table class='table table-success table-striped '>
                     <thead>
                         <tr>
 
-                            <th scope="col">Id</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Metros</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Seleccionar</th>
+                            <th scope='col'>Id</th>
+                            <th scope='col'>Tipo</th>
+                            <th scope='col'>Precio</th>
+                            <th scope='col'>Metros</th>
+                            <th scope='col'>Descripción</th>
+                            <th scope='col'>Seleccionar</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <?php
+                    ";
                         for ($i = 0; $i < count($listaparcelas); $i++) {
 
                             echo "  <tr>
@@ -72,26 +112,29 @@ if(isset($_POST['borrarhuerto'])){
                         <td> <input type='radio' name='huertoseleccionado' value='" . $listaparcelas[$i]["Id"] . "'></td>
                     </tr>";
                         }
+                        echo "
+                            </tbody>
+                            </table>";
+                    }
 
 
-                        ?>
+                    ?>
 
-                    </tbody>
-                </table>
+
+                </div>
             </div>
-        </div>
-      
+
             <div class="row" style="width:100% ;">
 
                 <div class="col-6 p-5 m-auto d-flex justify-content-around">
-                  
-                    <button type="button" class="btn btn-success px-4" style="font-size: 20px;">Modificar</button>
+
+                    <button type="submit" class="btn btn-success px-4" name="modificarhuerto" style="font-size: 20px;">Modificar</button>
                     <!-- Button trigger modal -->
 
                     <button type="button" class="btn btn-success px-4" data-bs-toggle="modal" data-bs-target="#anadirModal" style="font-size: 20px;">
                         Añadir
                     </button>
-                    <button type="submit" name="borrarhuerto" class="btn btn-success px-4"  style="font-size: 20px;">
+                    <button type="submit" name="borrarhuerto" class="btn btn-success px-4" style="font-size: 20px;">
                         Borrar
                     </button>
 
@@ -135,42 +178,42 @@ if(isset($_POST['borrarhuerto'])){
                     </div>
 
                 </div>
-       
-        <div class="row" style="width:100% ;">
-            <div class="col-8 m-auto p-5">
 
-                <table class="table table-success table-striped ">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="row" style="width:100% ;">
+                    <div class="col-8 m-auto p-5">
+
+                        <table class="table table-success table-striped ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
     </form>
 
 

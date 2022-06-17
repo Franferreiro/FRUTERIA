@@ -1,7 +1,7 @@
 <?php
 require "BD_metodos.php";
-require "huerto.php";
-
+require_once "autoload.php";
+use Clase\huerto;
 
 session_start();
 $listaparcelas = listarparcelas();

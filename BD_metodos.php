@@ -200,4 +200,33 @@ function borrarrhuerto( $id){
         print $e->getMessage();
     }
 }
+function buscarparcelaporid($id){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM parcelas WHERE Id=:id ");
+    $sql->bindParam(":id",$id);
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
+function modificarhuerto( $id,$tipo, $precio, $metros, $imagen,$descripcion){
+    try {
+        $base = conectar("admin");
+        $sql = $base->prepare("UPDATE parcelas SET tipo=:tipo , precio=:precio , metros=:metros, imagen=:imagen, descripcion=:descripcion WHERE Id=:id");
+        $sql->bindParam(':id', $id);
+        $sql->bindParam(':tipo', $tipo);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':metros', $metros);
+        $sql->bindParam(':imagen', $imagen);
+        $sql->bindParam(':descripcion', $descripcion);
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
 ?>
