@@ -10,20 +10,22 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styleindex.css">
+  <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+
 
   <title>My Website</title>
 </head>
 
 <body>
-  
+
   <section id="header">
     <div class="header container">
       <div class="nav-bar">
         <div>
-          <a class="navbar-brand" href=""><img src="./img/logogranjaa.png" alt="Logo" class="me-2" style="width: 70px" /></a>
+          <a class="navbar-brand" href="index.php"><img src="./img/logogranjaa.png" alt="Logo" class="me-2" style="width: 70px" /></a>
         </div>
         <div class="brand">
-          <a href="#hero">
+          <a href="index.php">
             <h1><span>G</span>ran <span>J</span>uca</h1>
           </a>
         </div>
@@ -32,31 +34,31 @@ session_start();
             <div class="bar"></div>
           </div>
           <ul>
-            <li><a href="#hero" data-after="Inicio">Inicio</a></li>
-            <li><a href="#services" data-after="Reservas">Reservar</a></li>
+            <li><a href="#terrenos" data-after="Inicio">Terreno</a></li>
+            <li><a href="#services" data-after="Reservas">Reserva</a></li>
             <li><a href="#projects" data-after="Productos">Productos</a></li>
             <li><a href="#about" data-after="Acerca de">Acerca de</a></li>
             <li><a href="#contact" data-after="Contacto">Contacto</a></li>
             <?php
-              if(!empty($_SESSION)){
-                if (($_SESSION["rol"]==1)) {
-                  echo "<li><a href='administrar.php' data-after='Contacto'>Admin</a></li>";
-                } 
+            if (!empty($_SESSION)) {
+              if (($_SESSION["rol"] == 1)) {
+                echo "<li><a href='administrar.php' data-after='Contacto'>Admin</a></li>";
               }
+            }
             if (isset($_SESSION["img"])) {
-              echo "<li><a href='perfil.php' data-after='Contacto'> <img class='imgnav' src='". $_SESSION['img'] ."' ></a></li>";
+              echo "<li><a href='perfil.php' data-after='Contacto'> <img class='imgnav' src='" . $_SESSION['img'] . "' ></a></li>";
             } else {
               echo ' <li><a href="login.php" data-after="Contacto">Login</a></li>';
             }
             ?>
-           
+
 
           </ul>
         </div>
       </div>
     </div>
   </section>
-  
+
   <section id="hero">
     <div class="hero container">
       <div>
@@ -67,229 +69,49 @@ session_start();
       </div>
     </div>
   </section>
-  
+
   <section id="services">
     <div class="services container">
-      <form action="reservas.php" method="$_POST">
+
       <div class="service-top">
         <h1 class="section-title">Rese<span>r</span>vas</h1>
-        <p>Ven a recoger las frutas y vegetales directamente del árboly del huerto, escoge tú mismo el que más te guste y comprueba de primera mano que es fresco y libre de conservantes</p>
+        <p>Ven a realizar actividades y procesos relacionados con el campo y la agricultura durante una hora por 7,95 € cada integrante de tu grupo, pasa un rato entretenido y divertido con la opción de llevarte los productos con los que has interactuado en las actividades. Se aceptan reservas individuales y de grupos de hasta 5 personas. Te aportaremos el material necesario para realizar las actividades, desde la vestimenta hasta las herramientas. </p>
       </div>
-      <div class="service-bottom">
-        <div class="service-item" id="huertotomate">
+      <div class="service-bottom" id="parcelas">
 
-          <h2>Huerto de tomates</h2>
-          <p>Puede que sea su brillante color, su delicioso sabor o su sorprende versatilidad, pero lo cierto es que nuestros tomates son un alimento con mucho «sex appeal».</p>
-          <a href="reservas.php" class="cta">Reservar</a>
-        </div>
-        <div class="service-item" id="huertocebolla">
-
-          <h2>Huerto de cebollas</h2>
-          <p>La cebolla es un producto básico de la cocina que no debería faltar en el huerto familiar. Es una hortaliza adaptable a diferentes climas y sustratos, fácil de producir.</p>
-          <a href="reservas.php" class="cta">Reservar</a>
-        </div>
-        <div class="service-item " id="huertopatata">
-
-          <h2>Huerto de patatas</h2>
-          <p>Las mejores patatas libes de químicos y atitivos,sembradas lo más naturalmente posible para que tu mismo las lleves del huerto a la cocina.</p>
-          <a href="reservas.php" class="cta">Reservar</a>
-        </div>
-        <div class="service-item" id="huertolechuga">
-
-          <h2>Huerto de lechugas</h2>
-          <p>Lechuga verde y fresca, todo lo que necesitas para una buena ensalada, añadele algunos de nuestros tomates y nuestras cebollas y será perfecta.</p>
-          <a href="reservas.php" class="cta">Reservar</a>
-        </div>
-
-        <div class="service-item" id="frutales">
-
-          <h2>Finca de frutales</h2>
-          <p>Recoge las frutas que quieras; desde manzanas,limones,melocotones o lo que más te apetezca, escoge a tu gusto y cercionate de primera mano que estan maduras y jugosas.</p>
-          <a href="reservas.php" class="cta">Reservar</a>
-        </div>
 
       </div>
-      </form>
+
     </div>
   </section>
-  
+
   <section id="projects">
     <div class="projects container">
       <div class="projects-header">
         <h1 class="section-title">Prod<span>u</span>ctos</h1>
       </div>
       <div class="all-projects">
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Patata</h1>
-            <h2>Patata kennebec</h2>
 
-            <p>Especialmente indicada para cocer, asar o utilizar en guisos
-            </p>
-            <p>Precio: 2.60 €/Kg</p>
-            <h2>Patata Monalisa</h2>
-            <p>Son patatas “todoterreno”, ya sea fritas, porque absorben poco aceite; cocidas, ya que no se rompen, o asadas.</p>
-            <p>Precio: 2.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/patatas.webp" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Tomate </h1>
-            <h2>Tomate Raf</h2>
-            <p>Es de forma irregular, achatado y ovalado, y tiene verdaderos adeptos por su delicioso sabor, muy dulce. En crudo, con unas gotitas de aceite de oliva y un pelín de sal, está espectacular.</p>
-            <p>Precio: 4.30 €/Kg</p>
-            <h2>Tomate corazón de buey</h2>
-            <p>Son muy conocidos por su pulpa carnosa y muy pocas semillas. Son deliciosos, dulces, con mucho jugo y piel fina. No necesitan mucho aderezo: apenas un poco de sal y aceite de oliva virgen y te rendirás a su sabor.</p>
-            <p>Precio: 4.50 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/tomatoes-5356__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Lechuga </h1>
-            <h2>Lechuga Romana</h2>
-            <p>Es una especie de lechuga con una costilla gruesa y carnosa, más rígida que otros tipos, que tiene una textura crujiente y un cierto sabor amargo</p>
-            <p>Precio: 3.30 €/Kg</p>
-            <h2>Lechuga Rizada</h2>
-            <p>Se consume siempre en crudo, incluso mejor si se combina con otras variedades de ensalada, a las que aporta un delicado toque amargo y una cierta aspereza</p>
-            <p>Precio: 3.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/green-salad-1533956__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Cebolla </h1>
-
-            <h2>Cebolla Morada</h2>
-            <p>Es grande, de ligero sabor picante y con un toque dulce, y se cultiva en verano y primavera. Su consumo predilecto es en fresco.</p>
-            <p>Precio: 3.10 €/Kg</p>
-            <h2>Cebolla Blanca</h2>
-            <p>Se recomienda especialmente para su consumo en crudo, gracias a su sabor suave y su textura crujiente. </p>
-            <p>Precio: 3.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/onion-3540502__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Manzana</h1>
-
-            <h2>Reineta</h2>
-            <p>Es grande y achatada. Su espectro de colores puede ir desde el amarillo hasta el gris, pasando por tonalidades verdosas. Tiene manchas y un tacto áspero. De sabor agridulce.</p>
-            <p>Precio: 4.30 €/Kg</p>
-            <h2>Golden</h2>
-            <p>Tiene un color amarillento con toques dorados. Además destaca por su sabor ácido que desaparece cuando madura, convirtiéndose en dulce y su textura crujiente.</p>
-            <p>Precio: 4.10 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/apples-2788599__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Pera</h1>
-
-            <h2>Blanquilla</h2>
-            <p>De tamaño mediano, con una piel muy lisa, fina y de un espléndido color verde brillante.Esta especie tienen una carne muy jugosa, con un corazón pequeño </p>
-            <p>Precio: 3.80 €/Kg</p>
-            <h2>Mantecosa Hardy</h2>
-            <p>Variedad francesa de fruto con un tamaño mediano y forma asimétrica, corta.Debajo de su piel amarillo verdosa se puede probar una pulpa de grano fino, muy tierna y jugosa, con gran sabor.</p>
-            <p>Precio: 3.20 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/pera-1534494__480.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Uva</h1>
-
-            <h2>Albariño</h2>
-            <p>La uva es menuda, y de tardía maduración. Tiene un color amarillo pálido con algunos toques de verde.</p>
-            <p>Precio: 5.80 €/Kg</p>
-            <h2>Fresa</h2>
-            <p>La baya es pequeña, elíptica y uniforme de color negro azulado. El racimo también es pequeño y ligeramente apretado</p>
-            <p>Precio: 5.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/uvas-1057433822-170667a.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Higo</h1>
-            <p>Quizas por ser una fruta tan dulce y jugosa muchas personas creen que tiene muchas calorías. Sin embargo, su aporte calórico si se consume fresco es solo un poco mayor que el de las manzanas</p>
-            <p>Precio: 3.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/figs-751__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Melocotón</h1>
-            <p>Al contrario de lo que pueda parecer debido a su sabor dulce, el melocotón no es de las frutas que más hidratos de carbono y energía aportan. Destaca su riqueza de fibra, que mejora el tránsito intestinal y su elevada cantidad de agua</p>
-            <p>Precio: 5.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/peaches-3529802__340.webp" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Ciruela</h1>
-            <p>Esta composición nutricional convierte a la ciruela en un alimento energético, alcalinizante, depurativo, refrescante, ligero y tonificante, capaz de estimular el sistema nervioso y combatir la fatiga.</p>
-            <p>Precio: 4.70 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/ciruela-71690__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Naranja</h1>
-            <p>De su composición nutritiva, destaca su escaso valor energético, gracias a su elevado contenido en agua y su riqueza de vitamina C, ácido fólico y minerales como el potasio, el magnesio y calcio, que apenas se absorbe por el organismo.</p>
-            <p>Precio: 3.80 €/Kg</p>
-            <h2>Mandarina</h2>
-            <p>El componente mayoritario en las mandarinas es el agua y, respecto a otras frutas de su género, aporta menos cantidad de azúcares y por tanto menos calorías. La cantidad de fibra es apreciable y esta se encuentra sobre todo en la parte blanca entre la pulpa y la corteza, por lo que su consumo favorece el tránsito intestinal.</p>
-            <p>Precio: 4.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/oranges-1117628__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Cereza</h1>           
-            <p>Esta pequeña y evocadora fruta apasiona con su bonito color e increíble sabor, pero el disfrute al aprovechar la temporada se redobla cuando se descubren sus numerosas propiedades y beneficios para la salud.</p>
-            <p>Precio: 5.50 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/cherries-598170__340.jpg" alt="img">
-          </div>
-        </div>
-        <div class="project-item">
-          <div class="project-info">
-            <h1>Limón</h1>
-            <p>El limón es una fruta muy rica nutricionalmente hablando, ya que aporta multitud de vitaminas y minerales al organismo (como el potasio, el selenio, el hierro y el magnesio) sin apenas calorías ni grasas.</p>
-            <p>Precio: 3.30 €/Kg</p>
-          </div>
-          <div class="project-img">
-            <img src="./img/lemon-1117568__340.jpg" alt="img">
-          </div>
-        </div>
 
 
       </div>
     </div>
+  </section>
+  <section id="terrenos">
+  <section id="services" class="terrenos">
+    <div class="services container">
+
+      <div class="service-top">
+        <h1 class="section-title">Terr<span>e</span>nos</h1>
+        <p>Alquila un terreno de 20 metros cuadrados por 28,95 euros al mes o de 50 metros cuadrados por 69,95 euros al mes, en el que puedes plantar las frutas y hortalizas que quieras, si quieres que los trabajadores se ocupen del cultivo el precio se incrementará un 25%, pasando a costar 36,20 euros el de 25 metros cuadrados y 87,45 euros eld e 50 metros cuadrados.  </p>
+      </div>
+      <div class="service-bottom" id="terrenosalquilables">
+
+
+      </div>
+
+    </div>
+  </section>
   </section>
 
   <section id="about">
@@ -313,7 +135,7 @@ session_start();
       </div>
     </div>
   </section>
- 
+
   <section id="contact">
     <div class="contact container">
       <div>
@@ -346,7 +168,8 @@ session_start();
       </div>
     </div>
   </section>
- 
+  
+
   <section id="footer">
     <div class="footer container">
       <div class="brand">
@@ -366,8 +189,193 @@ session_start();
     <p>Copyright © 2020 GranJuca. Todos los derechos reservados</p>
     </div>
   </section>
- 
+  <div class="modal" id="modreservas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-target=".bd-example-modal-lg" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="    background-image: linear-gradient(60deg, rgb(5, 88, 5) 0%, rgb(107, 91, 22) 100%);">
+        <div class="modal-header" style="border:none">
+
+
+        </div>
+        <div class="modal-body">
+          <div class="form-control" style="margin:2px; border-radius:10px; padding-top:15px;">
+            <form method="$_POST">
+
+
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Fecha</label>
+                </div>
+                <div class="col-md-6" style="font-size: 2vh;">
+                  <input type="date" name="fecha_reserva" id="fecha_reserva" value="<?php if (isset($_POST['fecha_reserva'])) echo $_POST['fecha_reserva']; ?>" style="width: 100%;">
+
+                </div>
+
+              </div>
+              <hr>
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Horas disponibles</label>
+                </div>
+                <div class="col-md-6">
+                  <select style="font-size: 2vh;" name='horashuerto' id="horashuerto" class='form-select' aria-label='Default select example'>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" style="border:none">
+          <button style="font-size: 2vh;" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload();">Cerrar</button>
+          <button style="font-size: 2vh;" type="button" id="botonreserva" class="btn btn-success" onclick="realizarreserva();">Reservar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modproductos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-target=".bd-example-modal-lg" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="    background-image: linear-gradient(60deg, rgb(5, 88, 5) 0%, rgb(107, 91, 22) 100%);">
+        <div class="modal-header" style="border:none">
+
+
+        </div>
+        <div class="modal-body">
+          <div class="form-control" style="margin:2px; border-radius:10px; padding-top:15px;">
+            <form method="$_POST">
+
+
+              <div class="row" style="margin-bottom:10px;    align-items: center;justify-content: center;">
+                <div class="col-md-2" style="    margin-right: 1vw;">
+                  <label style="margin-top:7px;font-size: 2vh;">Cantidad</label>
+                </div>
+                <div class="col-md-2" style="font-size: 2vh;">
+                  <input type="number" name="cantidad_producto" id="cantidad_producto" value="" style="width: 100%;">
+
+                </div>
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Kg</label>
+                </div>
+
+              </div>
+            
+
+
+
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" style="border:none">
+          <button style="font-size: 2vh;" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarmodal()">Cerrar</button>
+          <button style="font-size: 2vh;" type="button" id="botonreserva" class="btn btn-success" onclick="anadircarro()">Añadir al carro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="levantarcarrito()" class="btn-flotante" style="display:none;">Compra</button>
+  <div class="modal" id="modcompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-target=".bd-example-modal-lg" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="    background-image: linear-gradient(60deg, rgb(5, 88, 5) 0%, rgb(107, 91, 22) 100%);">
+        <div class="modal-header" style="border:none">
+
+
+        </div>
+        <div class="modal-body">
+          <div class="form-control" style="margin:2px; border-radius:10px; padding-top:15px;">
+            <form method="$_POST" id="formcarrito">
+
+
+            
+            
+
+
+
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" style="border:none">
+          <button style="font-size: 2vh;" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarcarrito()">Cerrar</button>
+          <button style="font-size: 2vh;" type="button" id="botonreserva" class="btn btn-success" onclick="realizarcompra()">Realizar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modterrenos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-target=".bd-example-modal-lg" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="    background-image: linear-gradient(60deg, rgb(5, 88, 5) 0%, rgb(107, 91, 22) 100%);">
+        <div class="modal-header" style="border:none">
+
+
+        </div>
+        <div class="modal-body">
+          <div class="form-control" style="margin:2px; border-radius:10px; padding-top:15px;">
+            <form method="$_POST" id="terrenosmod">
+
+
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Fecha Inicio</label>
+                </div>
+                <div class="col-md-6" style="font-size: 2vh;">
+                  <input type="date" name="fecha_inicio" id="fecha_inicio" value="<?php if (isset($_POST['fecha_inicio'])) echo $_POST['fecha_inicio']; ?>" style="width: 100%;">
+
+                </div>
+
+              </div>
+              <hr>
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Fecha Inicio</label>
+                </div>
+                <div class="col-md-6" style="font-size: 2vh;">
+                  <input type="date" name="fecha_final" id="fecha_final" value="<?php if (isset($_POST['fecha_final'])) echo $_POST['fecha_final']; ?>" style="width: 100%;">
+
+                </div>
+
+              </div>
+              <hr>
+              <div class="row" style="margin-bottom:10px;">
+                <div class="col-md-2">
+                  <label style="margin-top:7px;font-size: 2vh;">Tipo de cultivo</label>
+                </div>
+                <div class="col-md-6">
+                  <select style="font-size: 2vh;" name='tipocultivo' id="tipocultivo" class='form-select' aria-label='Default select example'>
+                  <option value="Yo mismo">Yo mismo</option>
+                  <option value="">Con ayuda</option>
+                  </select>
+
+                </div>
+
+              </div>
+
+
+
+
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer" style="border:none">
+          <button style="font-size: 2vh;" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.reload();">Cerrar</button>
+          <button style="font-size: 2vh;" type="button" id="botonreserva" class="btn btn-success" onclick="haceralquiler()">Alquilar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/app.js"></script>
+  <script src="js/jquery-3.6.2.min.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
+  <script src="js/moment.js"></script>
 </body>
 
 </html>

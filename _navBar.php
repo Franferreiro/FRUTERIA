@@ -4,7 +4,7 @@
     <div class="header container">
       <div class="nav-bar">
         <div>
-          <a class="navbar-brand" href=""
+          <a class="navbar-brand" href="index.php"
             ><img
               src="./img/logogranjaa.png"
               alt="Logo"
@@ -13,7 +13,7 @@
           /></a>
         </div>
         <div class="brand">
-          <a href="#hero">
+          <a href="index.php">
             <h1><span>G</span>ran <span>J</span>uca</h1>
           </a>
         </div>
@@ -22,7 +22,7 @@
             <div class="bar"></div>
           </div>
           <ul>
-            <li><a href="index.php#hero" data-after="Inicio">Inicio</a></li>
+            <li><a href="index.php#terrenos" data-after="Inicio">Terreno</a></li>
             <li><a href="index.php#services" data-after="Reservas">Reservar</a></li>
             <li><a href="index.php#projects" data-after="Productos">Productos</a></li>
             <li><a href="index.php#about" data-after="Acerca de">Acerca de</a></li>

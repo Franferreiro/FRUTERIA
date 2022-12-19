@@ -11,6 +11,127 @@ function listarusuarios(){
     return $resultado;
 
 }
+function listarproductos(){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM productos ");
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
+function listarterrenos(){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM terrenos_alquilables ");
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
+function traeruertos(){
+   
+        $base=conectar("admin");
+        $sql=$base->prepare("SELECT * FROM parcelas");
+       
+        $sql->execute();
+        $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+        $sql=null;
+        $base=null;
+        return $resultado;
+
+}
+function realizaralquiler($id,$idusuario,$fechaini,$fechafin){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("INSERT INTO alquileres(id_terreno,id_usuario,fecha_inicio,fecha_final) VALUES(:id_terreno,:id_usuario,:fecha_inicio,:fecha_final)");
+        $sql->bindParam(":id_usuario",$idusuario);
+        $sql->bindParam(":id_terreno",$id);
+        $sql->bindParam(":fecha_inicio",$fechaini);
+        $sql->bindParam(":fecha_final",$fechafin);
+        $sql->execute();
+        $sql=null;
+        $base=null;
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+
+
+}
+function modificarestadoalquiler($id,$estado){
+    try {
+        $base = conectar("admin");
+        $sql = $base->prepare("UPDATE terrenos_alquilables SET estado=:estado  WHERE Id=:id");
+        $sql->bindParam(':id', $id);
+        $sql->bindParam(':estado', $estado);
+      
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+
+}
+function traerterrenos(){
+    
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM terrenos_alquilables");
+   
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+
+}
+function modificarcantidadproducto($id,$cantidad){
+    try {
+        $base = conectar("admin");
+        $sql = $base->prepare("UPDATE productos SET cantidad_disponible=:cantidad  WHERE Id=:id");
+        $sql->bindParam(':id', $id);
+        $sql->bindParam(':cantidad', $cantidad);
+      
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function obtenerproducto($id){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("SELECT * FROM productos WHERE Id=:id");
+        $sql->bindParam(":id",$id);
+        $sql->execute();
+        $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+        $sql=null;
+        $base=null;
+        return $resultado;
+    }catch(PDOException $e){
+        print $e->getMessage();
+    }
+}
+function obtenerterreno($id){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("SELECT * FROM terrenos_alquilables WHERE Id=:id");
+        $sql->bindParam(":id",$id);
+        $sql->execute();
+        $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+        $sql=null;
+        $base=null;
+        return $resultado;
+    }catch(PDOException $e){
+        print $e->getMessage();
+    }
+}
 function traerusuarioporcorreo($correo){
     try{
     $base=conectar("admin");
@@ -90,6 +211,16 @@ function consultarhistoriausuario($id){
 }
 
 }
+function seleccionaridpedido(){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT MAX(id) FROM pedido ");
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_NUM);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
 function consultarhistoriausuarioporfecha($id,$inicio,$final){
     try{
     $base=conectar("admin");
@@ -105,6 +236,33 @@ function consultarhistoriausuarioporfecha($id,$inicio,$final){
 }catch(PDOException $e){
     print $e->getMessage();
 }
+}
+function insertarproductoscompra($idpedido,$idproducto,$cantidad){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("INSERT INTO productos_pedido(id_pedido,id_producto,cantidad) VALUES(:id_pedido,:id_producto,:cantidad)");
+        $sql->bindParam(":id_pedido",$idpedido);
+        $sql->bindParam(":id_producto",$idproducto);
+        $sql->bindParam(":cantidad",$cantidad);
+        $sql->execute();
+        $sql=null;
+        $base=null;
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+}
+function realizarcompra($id,$total){
+    try{
+        $base=conectar("admin");
+        $sql=$base->prepare("INSERT INTO pedido(id_usuario,precio_total) VALUES(:id_usuario,:precio_total)");
+        $sql->bindParam(":id_usuario",$id);
+        $sql->bindParam(":precio_total",$total);
+        $sql->execute();
+        $sql=null;
+        $base=null;
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
 
 }
 function consultarhistoriausuarioportipo($id,$tipo){
@@ -125,6 +283,16 @@ function consultarhistoriausuarioportipo($id,$tipo){
 function listarparcelas(){
     $base=conectar("admin");
     $sql=$base->prepare("SELECT * FROM parcelas ");
+    $sql->execute();
+    $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+    $sql=null;
+    $base=null;
+    return $resultado;
+
+}
+function traerproductos(){
+    $base=conectar("admin");
+    $sql=$base->prepare("SELECT * FROM productos ");
     $sql->execute();
     $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
     $sql=null;
@@ -188,10 +356,68 @@ function añadirrhuerto( $tipo, $precio, $metros, $imagen,$descripcion){
         print $e->getMessage();
     }
 }
+function añadirterreno( $tamaño, $precio, $foto, $estado){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("INSERT INTO terrenos_alquilables(tamaño,precio,foto,estado) VALUES(:tamano,:precio,:foto,:estado)");
+        $sql->bindParam(':tamano', $tamaño);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':foto', $foto);
+        $sql->bindParam(':estado', $estado);
+        $sql->execute();
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function añadirproducto( $nombre, $tipo, $foto, $precio,$cantidad,$descripcion){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("INSERT INTO productos(nombre,tipo,foto,precio,cantidad_disponible,descripcion) VALUES(:nombre,:tipo,:foto,:precio,:cantidad,:descripcion)");
+        $sql->bindParam(':nombre', $nombre);
+        $sql->bindParam(':tipo', $tipo);
+        $sql->bindParam(':foto', $foto);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':cantidad', $cantidad);
+        $sql->bindParam(':descripcion', $descripcion);
+       
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
 function borrarrhuerto( $id){
     try {
         $base = conectar("admin");
         $sql=$base->prepare("DELETE FROM parcelas WHERE Id=:id");
+        $sql->bindParam(':id', $id);       
+        $sql->execute();
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function borrarrterreno( $id){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("DELETE FROM terrenos_alquilables WHERE Id=:id");
+        $sql->bindParam(':id', $id);       
+        $sql->execute();
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function borrarrproducto( $id){
+    try {
+        $base = conectar("admin");
+        $sql=$base->prepare("DELETE FROM productos WHERE Id=:id");
         $sql->bindParam(':id', $id);       
         $sql->execute();
         $sql =  null;
@@ -221,6 +447,42 @@ function modificarhuerto( $id, $tipo, $precio, $metros, $imagen,$descripcion){
         $sql->bindParam(':metros', $metros);
         $sql->bindParam(':imagen', $imagen);
         $sql->bindParam(':descripcion', $descripcion);
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function modificarproducto( $id,$nombre, $foto, $precio, $cantidad,$descripcion){
+    try {
+        $base = conectar("admin");
+        $sql = $base->prepare("UPDATE productos SET nombre=:nombre , foto=:foto , precio=:precio, cantidad_disponible=:cantidad, descripcion=:descripcion WHERE Id=:id");
+        $sql->bindParam(':id', $id);
+        $sql->bindParam(':nombre', $nombre);
+        $sql->bindParam(':foto', $foto);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':cantidad', $cantidad);
+        $sql->bindParam(':descripcion', $descripcion);
+        $sql->execute();
+
+        $sql =  null;
+        $base = null;
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+}
+function modificarterreno( $id,$tamaño,$precio, $foto, $estado){
+    try {
+        $base = conectar("admin");
+        $sql = $base->prepare("UPDATE terrenos_alquilables SET tamaño=:tamaño, precio=:precio, foto=:foto,estado=:estado WHERE Id=:id");
+        $sql->bindParam(':id', $id);
+        $sql->bindParam(':tamaño', $tamaño);
+        $sql->bindParam(':foto', $foto);
+        $sql->bindParam(':precio', $precio);
+        $sql->bindParam(':estado', $estado);
+       
         $sql->execute();
 
         $sql =  null;

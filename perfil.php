@@ -161,6 +161,8 @@ if (isset($_POST["Cerrar"])) {
         <option value='Logout'>Logout</option>
         <option value='Modificación'>Modificación</option>
         <option value='Reserva'>Reserva</option>
+        <option value='Compra'>Compra</option>
+        <option value='Alquiler'>Alquiler</option>
         </select>
         </div>
         </form>
